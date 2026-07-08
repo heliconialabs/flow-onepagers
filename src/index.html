@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Flow One-Pagers</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #1a1a1a;
+        line-height: 1.6;
+        margin: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      /* Each section is its own printed page. */
+      .page { page-break-after: always; }
+      .page:last-child { page-break-after: auto; }
+
+      h1 {
+        position: relative;
+        font-size: 26px;
+        font-weight: 700;
+        margin: 2.5rem 0 1.5rem;
+      }
+      /* Signature Heliconia black bar above every page heading. */
+      h1::before {
+        content: "";
+        display: block;
+        width: 145px;
+        height: 10px;
+        background: #999;
+        margin-bottom: 1.25rem;
+      }
+
+      h2 {
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #000;
+        margin: 2rem 0 0.6rem;
+      }
+      p, li { font-size: 12px; }
+      ul { padding-left: 1.1rem; }
+      li { margin: 0.35rem 0; }
+
+      /* --- Cover page --- */
+      .cover {
+        height: 247mm; /* A4 height minus top+bottom margins */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .cover .logo { width: 55%; margin-bottom: 3rem; }
+      .cover .logo img { width: 100%; height: auto; }
+      .cover h1 { margin: 0; }
+      .cover h1::before {
+        margin: 0 auto 1.5rem; /* center the bar on the cover */
+      }
+      .doc-title { font-size: 34px; font-weight: 700; }
+      .doc-subtitle {
+        color: #999;
+        font-weight: 300;
+        font-size: 18px;
+        letter-spacing: 0.02em;
+        margin: 0.75rem 0 0;
+      }
+
+      /* --- Contents --- */
+      .toc { color: #333; padding-left: 1.2rem; }
+      .toc li { margin: 0.4rem 0; }
+
+      /* --- One-pager --- */
+      .eyebrow {
+        display: block;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #999;
+        margin-top: 2.5rem;
+      }
+      .eyebrow + h1 { margin-top: 0.5rem; }
+
+      .metrics { display: flex; gap: 1rem; margin: 0.5rem 0 1.25rem; }
+      .metric {
+        flex: 1;
+        border: 1px solid #000;
+        border-radius: 8px;
+        padding: 1rem 0.75rem;
+        text-align: center;
+      }
+      .metric .value { display: block; font-size: 15px; font-weight: 700; color: #000; }
+      .metric .label {
+        display: block;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #666;
+        margin-top: 0.4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Cover -->
+    <section class="page cover">
+      <div class="logo"><img src="img/heliconialabs.svg" alt="Heliconia Labs" /></div>
+      <h1 class="doc-title">Flow One-Pagers</h1>
+      <p class="doc-subtitle">Insights &amp; Impact</p>
+    </section>
+
+    <!-- Introduction -->
+    <section class="page">
+      <h1>Introduction</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h2>Contents</h2>
+      <ol class="toc">
+        <li>Customer Onboarding</li>
+        <li>Billing &amp; Invoicing</li>
+        <li>Support Operations</li>
+        <li>Data Pipeline</li>
+        <li>Release Management</li>
+      </ol>
+    </section>
+
+    <!-- One-Pager 1 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 1 of 5</span>
+      <h1>Customer Onboarding</h1>
+
+      <h2>Insights</h2>
+      <ul>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+      </ul>
+
+      <h2>Impact</h2>
+      <div class="metrics">
+        <div class="metric"><span class="value">Faster delivery</span><span class="label">Lorem ipsum</span></div>
+        <div class="metric"><span class="value">Lower cost</span><span class="label">Dolor sit amet</span></div>
+        <div class="metric"><span class="value">Higher quality</span><span class="label">Consectetur</span></div>
+      </div>
+      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+    </section>
+
+    <!-- One-Pager 2 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 2 of 5</span>
+      <h1>Billing &amp; Invoicing</h1>
+
+      <h2>Insights</h2>
+      <ul>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+      </ul>
+
+      <h2>Impact</h2>
+      <div class="metrics">
+        <div class="metric"><span class="value">Faster delivery</span><span class="label">Lorem ipsum</span></div>
+        <div class="metric"><span class="value">Lower cost</span><span class="label">Dolor sit amet</span></div>
+        <div class="metric"><span class="value">Higher quality</span><span class="label">Consectetur</span></div>
+      </div>
+      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+    </section>
+
+    <!-- One-Pager 3 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 3 of 5</span>
+      <h1>Support Operations</h1>
+
+      <h2>Insights</h2>
+      <ul>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+      </ul>
+
+      <h2>Impact</h2>
+      <div class="metrics">
+        <div class="metric"><span class="value">Faster delivery</span><span class="label">Lorem ipsum</span></div>
+        <div class="metric"><span class="value">Lower cost</span><span class="label">Dolor sit amet</span></div>
+        <div class="metric"><span class="value">Higher quality</span><span class="label">Consectetur</span></div>
+      </div>
+      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+    </section>
+
+    <!-- One-Pager 4 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 4 of 5</span>
+      <h1>Data Pipeline</h1>
+
+      <h2>Insights</h2>
+      <ul>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+      </ul>
+
+      <h2>Impact</h2>
+      <div class="metrics">
+        <div class="metric"><span class="value">Faster delivery</span><span class="label">Lorem ipsum</span></div>
+        <div class="metric"><span class="value">Lower cost</span><span class="label">Dolor sit amet</span></div>
+        <div class="metric"><span class="value">Higher quality</span><span class="label">Consectetur</span></div>
+      </div>
+      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+    </section>
+
+    <!-- One-Pager 5 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 5 of 5</span>
+      <h1>Release Management</h1>
+
+      <h2>Insights</h2>
+      <ul>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+      </ul>
+
+      <h2>Impact</h2>
+      <div class="metrics">
+        <div class="metric"><span class="value">Faster delivery</span><span class="label">Lorem ipsum</span></div>
+        <div class="metric"><span class="value">Lower cost</span><span class="label">Dolor sit amet</span></div>
+        <div class="metric"><span class="value">Higher quality</span><span class="label">Consectetur</span></div>
+      </div>
+      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+    </section>
+  </body>
+</html>
