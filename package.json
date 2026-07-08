@@ -1,0 +1,22 @@
+{
+  "name": "flow-onepagers",
+  "version": "1.0.0",
+  "private": true,
+  "description": "onepagers",
+  "scripts": {
+    "test": "node src/html-to-pdf.js"
+  },
+  "dependencies": {
+    "puppeteer": "^25.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heliconialabs/flow-onepagers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heliconialabs/flow-onepagers/issues"
+  },
+  "homepage": "https://github.com/heliconialabs/flow-onepagers#readme"
+}
