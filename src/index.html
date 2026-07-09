@@ -6,6 +6,7 @@
     <style>
       :root {
         --ink: #111;
+        --body: #2e2e2e;
         --muted: #6f6f6f;
         --quiet: #9a9a9a;
         --line: #d8d8d8;
@@ -53,7 +54,7 @@
       }
       p, li { font-size: 12.25px; }
       p {
-        color: #2e2e2e;
+        color: var(--body);
         margin: 0 0 0.85rem;
         max-width: 15.5cm;
       }
@@ -256,12 +257,12 @@
       <p>With <a href="https://docs.heliconialabs.com/abapgit-flow.pdf">abapGit flow</a>, <a href="https://heliconialabs.com">Heliconia Labs</a> provides an end-to-end development and deployment process for SAP ABAP systems. It brings modern software delivery practices to ABAP: Git-based collaboration, pull requests, quality gates, code review, and independent changes that can move safely toward production.</p>
       <p>Together with open tooling, this creates a modern workflow where feedback is visible early, quality is built in, and ABAP code becomes accessible to contemporary engineering tools. This foundation is essential for successful LLM implementations, where clean versioned code, automated checks, and repeatable workflows determine how effectively AI can assist.</p>
       <p>Across all of these topics, the focus is developer experience and productivity: fewer manual checklists, clearer review context, faster feedback, and workflows that let SAP developers work with the same confidence and ergonomics as the rest of the engineering organization.</p>
-      <p>The following one-pagers highlight the workflows and focus areas that make this foundation practical, actionable, and ready to adopt: shift feedback left, monitor progress and architecture, sequence transports deliberately, explore preview deployments, keep humans in the loop, and build on open tooling instead of closed gardens.</p>
+      <p>The following one-pagers highlight the workflows and focus areas that make this foundation practical, actionable, and ready to adopt: build quality in, automate test data and scenarios, review changes with LLM assistance, inner source across teams, onboard developers faster, roll back with confidence, build on open tooling instead of walled gardens, govern clean core decisions, monitor repository health, and sequence transports with preview deployments.</p>
       <h2>Contents</h2>
       <ol class="toc">
         <li>Quality Built In</li>
         <li>Test Data and Scenario Automation</li>
-        <li>LLM Based Code Review for SAP Changes</li>
+        <li>LLM-Based Code Review for SAP Changes</li>
         <li>Inner Sourcing for SAP Teams</li>
         <li>Developer Onboarding and Enablement</li>
         <li>Easy Rollback with GitHub as the Change Memory</li>
@@ -282,7 +283,7 @@
       <h2>Flow</h2>
       <div class="flow">
         <div class="step"><span class="name">1. Developer pushes</span><p>ABAP source, configuration, documentation, and tests land in GitHub as one reviewable change.</p></div>
-        <div class="step"><span class="name">2. CI starts</span><p>Continuous integration remembers and runs static analysis, tests, security checks, and policy gates automatically.</p></div>
+        <div class="step"><span class="name">2. CI starts</span><p>Continuous integration runs static analysis, tests, security checks, and policy gates automatically.</p></div>
         <div class="step"><span class="name">3. Feedback returns</span><p>abaplint.app reports Clean ABAP, syntax, naming, and project-specific findings directly in the PR.</p></div>
         <div class="step"><span class="name">4. Human approves</span><p>Developers fix issues before approval, while reviewers validate LLM-based changes and final intent.</p></div>
       </div>
@@ -324,7 +325,6 @@
         <li>Repeatable validation: teams reduce manual retesting of the same SAP process paths.</li>
         <li>Clearer business review: reviewers can see expected behavior, relevant data, and proof of execution.</li>
         <li>Better AI guardrails: LLM-assisted changes must prove behavior, not only syntax or style.</li>
-        <li>Stronger regression confidence: migration, refactoring, and release work can reuse the same scenario evidence.</li>
       </ul>
 
       <h2>SAP Fit</h2>
@@ -338,8 +338,8 @@
 
     <!-- One-Pager 3 -->
     <section class="page">
-      <span class="eyebrow">One-Pager 3 of 10 | LLM Based Code Review for SAP Changes</span>
-      <h1>LLM Based Code Review for SAP Changes</h1>
+      <span class="eyebrow">One-Pager 3 of 10 | LLM-Based Code Review for SAP Changes</span>
+      <h1>LLM-Based Code Review for SAP Changes</h1>
       <p>Bring fast, consistent review feedback into the GitHub pull request before SAP experts spend their time.</p>
       <p>A reviewer gets cleaner ABAP, clearer context, and fewer avoidable defects. The team keeps the four-eyes principle, with an AI assistant handling the first pass. The LLM provider is replaceable: use the model that fits the risk, data, and enterprise sourcing requirements.</p>
 
@@ -360,10 +360,10 @@
       </ul>
 
       <h2>SAP Fit</h2>
-      <p>Complements the decided standard pull request process and GitHub platform direction. It builds on CI evidence, open tooling, and repository-based documentation. Keeps accountability with the human approver while enabling real autonomous first-pass analysis from any suitable provider.</p>
+      <p>Complements a standard pull request process and a GitHub-based platform direction. It builds on CI evidence, open tooling, and repository-based documentation. Keeps accountability with the human approver while enabling real autonomous first-pass analysis from any suitable provider.</p>
       <div class="metrics">
         <div class="metric"><span class="value">Fast</span><span class="label">Feedback at PR creation</span></div>
-        <div class="metric"><span class="value">Any Provider</span><span class="label">Comments linked to diffs</span></div>
+        <div class="metric"><span class="value">Any Provider</span><span class="label">Model of your choice</span></div>
         <div class="metric"><span class="value">Learn</span><span class="label">Guidelines reinforced daily</span></div>
       </div>
     </section>
@@ -392,7 +392,7 @@
       </ul>
 
       <h2>SAP Fit</h2>
-      <p>Aligns with the decided GitHub platform direction for SAP development transparency. Supports ABAP and non-ABAP assets in one collaboration model. Gives SAP teams a practical path into modern engineering habits without losing review governance or creating a walled garden.</p>
+      <p>Fits organizations that have standardized on GitHub for development transparency. Supports ABAP and non-ABAP assets in one collaboration model. Gives SAP teams a practical path into modern engineering habits without losing review governance or creating a walled garden.</p>
       <div class="metrics">
         <div class="metric"><span class="value">Find</span><span class="label">Existing SAP assets</span></div>
         <div class="metric"><span class="value">Share</span><span class="label">Patterns across teams</span></div>
@@ -468,7 +468,7 @@
     <section class="page">
       <span class="eyebrow">One-Pager 7 of 10 | GitHub, Advanced Security, and Open Tooling</span>
       <h1>GitHub, Advanced Security, and Open Tooling</h1>
-      <p>The proposal builds on proven platform choices: GitHub for inner sourcing, GitHub Advanced Security for risk visibility, and open tooling for SAP developer feedback.</p>
+      <p>This approach builds on proven platform choices: GitHub for inner sourcing, GitHub Advanced Security for risk visibility, and open tooling for SAP developer feedback.</p>
       <p>This is not a new isolated SAP platform. It is an extension of the engineering platform already chosen for transparency, collaboration, and automation, based on open tooling with a proven track record.</p>
 
       <h2>Flow</h2>
@@ -481,7 +481,7 @@
 
       <h2>Why It Matters</h2>
       <ul>
-        <li>Reuse approved choices: GitHub is already the selected consolidated platform direction for SAP development.</li>
+        <li>Reuse proven choices: for many organizations GitHub is already the consolidated engineering platform, and SAP development can join it.</li>
         <li>Avoid vendor lock-in: open tooling keeps checks inspectable, portable, proven, and easier to evolve.</li>
         <li>Improve security posture: GHAS brings enterprise security signals directly into the development workflow.</li>
         <li>Meet teams where they work: PRs become the shared control point for review, quality, security, progress monitoring, and learning.</li>
