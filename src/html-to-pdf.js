@@ -8,7 +8,9 @@ const OUTPUT = path.resolve(__dirname, "..", "out", "flow-onepagers.pdf");
 
 async function htmlToPdf() {
   fs.mkdirSync(path.dirname(OUTPUT), { recursive: true });
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    args: process.env.CI ? ["--no-sandbox", "--disable-setuid-sandbox"] : [],
+  });
   try {
     const page = await browser.newPage();
     await page.goto(pathToFileURL(INPUT).href, { waitUntil: "networkidle0" });
