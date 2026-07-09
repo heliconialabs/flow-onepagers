@@ -8,6 +8,7 @@ const OUTPUT = path.resolve(__dirname, "..", "out", "flow-onepagers.pdf");
 
 async function htmlToPdf() {
   fs.mkdirSync(path.dirname(OUTPUT), { recursive: true });
+  const builtAt = new Date().toISOString().replace("T", " ").slice(0, 16) + " UTC";
   const browser = await puppeteer.launch({
     args: process.env.CI ? ["--no-sandbox", "--disable-setuid-sandbox"] : [],
   });
@@ -21,11 +22,12 @@ async function htmlToPdf() {
       margin: { top: "20mm", bottom: "20mm", left: "22mm", right: "22mm" },
       displayHeaderFooter: true,
       headerTemplate: "<span></span>",
-      // Footer: page number on every page.
+      // Footer: page number and build timestamp on every page.
       footerTemplate: `
         <div style="width:100%; font-family:Arial,Helvetica,sans-serif; font-size:8px; color:#999; padding:0 22mm;">
-          <div style="text-align:right;">
-            Heliconia Labs &nbsp;&middot;&nbsp; Page <span class="pageNumber"></span>
+          <div style="display:flex; justify-content:space-between; width:100%;">
+            <span style="color:#d6d6d6; font-size:6px;">Built ${builtAt}</span>
+            <span>Heliconia Labs &nbsp;&middot;&nbsp; Page <span class="pageNumber"></span></span>
           </div>
         </div>`,
     });
