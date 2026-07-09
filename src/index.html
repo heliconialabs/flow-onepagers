@@ -193,6 +193,31 @@
         margin-top: 0.45rem;
         text-transform: uppercase;
       }
+      .flow {
+        display: grid;
+        gap: 0.65rem;
+        grid-template-columns: repeat(4, 1fr);
+        margin: 0.75rem 0 1.2rem;
+      }
+      .step {
+        border-top: 3px solid var(--ink);
+        background: var(--panel);
+        min-height: 118px;
+        padding: 0.7rem 0.6rem 0.65rem;
+      }
+      .step .name {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 0.42rem;
+      }
+      .step p {
+        color: var(--muted);
+        font-size: 10.8px;
+        line-height: 1.35;
+        margin: 0;
+      }
     </style>
   </head>
   <body>
@@ -209,119 +234,142 @@
       <h1>Introduction</h1>
       <p>With <a href="https://docs.heliconialabs.com/abapgit-flow.pdf">abapGit flow</a>, <a href="https://heliconialabs.com">Heliconia Labs</a> provides an end-to-end development and deployment process for SAP ABAP systems. It brings modern software delivery practices to ABAP: Git-based collaboration, pull requests, quality gates, code review, and independent changes that can move safely toward production.</p>
       <p>Together with <a href="https://abaplint.app">abaplint.app</a> for fast, configurable static analysis, this creates a modern workflow where feedback is visible early, quality is built in, and ABAP code becomes accessible to contemporary engineering tools. This foundation is essential for successful LLM implementations, where clean versioned code, automated checks, and repeatable workflows determine how effectively AI can assist.</p>
+      <p>The following one-pagers highlight the workflows and focus areas that make this foundation practical, actionable, and ready to adopt.</p>
       <h2>Contents</h2>
       <ol class="toc">
-        <li>Customer Onboarding</li>
-        <li>Billing &amp; Invoicing</li>
-        <li>Support Operations</li>
-        <li>Data Pipeline</li>
-        <li>Release Management</li>
+        <li>LLM Based Code Review for SAP Changes</li>
+        <li>Inner Sourcing for SAP Teams</li>
+        <li>Easy Rollback with GitHub as the Change Memory</li>
+        <li>GitHub, Advanced Security, and Open SAP Tooling</li>
       </ol>
     </section>
 
     <!-- One-Pager 1 -->
     <section class="page">
-      <span class="eyebrow">One-Pager 1 of 5</span>
-      <h1>Customer Onboarding</h1>
+      <span class="eyebrow">One-Pager 1 of 4 | SAP Pull Request Acceleration</span>
+      <h1>LLM Based Code Review for SAP Changes</h1>
+      <p>Bring fast, consistent review feedback into the GitHub pull request before scarce SAP experts spend their deepest attention.</p>
+      <p>A reviewer gets cleaner ABAP, clearer context, and fewer avoidable defects. The team keeps the four-eyes principle, with an AI assistant handling the first pass.</p>
 
-      <h2>Insights</h2>
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Developer opens PR</span><p>ABAP, config-as-code, documentation, and tests are visible in one review surface.</p></div>
+        <div class="step"><span class="name">2. Automated checks run</span><p>abaplint, unit tests, security scanning, and policy checks give objective signals.</p></div>
+        <div class="step"><span class="name">3. LLM review comments</span><p>The assistant highlights risky diffs, missing tests, unclear naming, and guideline drift.</p></div>
+        <div class="step"><span class="name">4. Human approves</span><p>SAP experts decide with better signal, traceability, and shared context.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
       <ul>
-        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+        <li>Higher review quality: consistent first-pass checks against Clean ABAP, local SAP guidelines, and PR evidence.</li>
+        <li>Shorter feedback loops: comments arrive while the developer still has the change in working memory.</li>
+        <li>Better use of experts: senior reviewers focus on architecture, business risk, and SAP-specific judgment.</li>
+        <li>Auditable decisions: every suggestion, response, and approval stays attached to the pull request.</li>
       </ul>
 
-      <h2>Impact</h2>
+      <h2>SAP Fit</h2>
+      <p>Complements the decided standard pull request process and existing GitHub platform direction. Works with open tooling such as abapGit, abaplint, ATC exports, and repository-based documentation. Keeps accountability with the human approver while improving the evidence available to them.</p>
       <div class="metrics">
-        <div class="metric"><span class="value">Faster delivery</span><span class="label">Lorem ipsum</span></div>
-        <div class="metric"><span class="value">Lower cost</span><span class="label">Dolor sit amet</span></div>
-        <div class="metric"><span class="value">Higher quality</span><span class="label">Consectetur</span></div>
+        <div class="metric"><span class="value">Fast</span><span class="label">Feedback at PR creation</span></div>
+        <div class="metric"><span class="value">Trace</span><span class="label">Comments linked to diffs</span></div>
+        <div class="metric"><span class="value">Learn</span><span class="label">Guidelines reinforced daily</span></div>
       </div>
-      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
     </section>
 
     <!-- One-Pager 2 -->
     <section class="page">
-      <span class="eyebrow">One-Pager 2 of 5</span>
-      <h1>Billing &amp; Invoicing</h1>
+      <span class="eyebrow">One-Pager 2 of 4 | Enterprise Collaboration</span>
+      <h1>Inner Sourcing for SAP Teams</h1>
+      <p>Use GitHub pull requests to make SAP knowledge discoverable, reusable, and easier to improve across product teams.</p>
+      <p>SAP development stops being hidden in isolated systems and becomes part of the shared engineering ecosystem.</p>
 
-      <h2>Insights</h2>
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Discover</span><p>Teams find existing SAP packages, APIs, extensions, and examples in GitHub.</p></div>
+        <div class="step"><span class="name">2. Learn</span><p>README files, PRs, ADRs, and checks show how the solution is meant to evolve.</p></div>
+        <div class="step"><span class="name">3. Contribute</span><p>Developers propose improvements through a familiar pull request workflow.</p></div>
+        <div class="step"><span class="name">4. Reuse</span><p>Shared components become easier to trust because ownership and quality signals are visible.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
       <ul>
-        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+        <li>Less duplicate work: teams can see and reuse existing solutions before creating another variant.</li>
+        <li>Better onboarding: new SAP developers learn from real repositories, reviews, and accepted patterns.</li>
+        <li>Stronger ownership: CODEOWNERS, branch protection, and PR review make responsibility explicit.</li>
+        <li>Cross-domain collaboration: non-SAP engineers can contribute documentation, APIs, tests, and automation.</li>
       </ul>
 
-      <h2>Impact</h2>
+      <h2>SAP Fit</h2>
+      <p>Aligns with the decided GitHub platform direction for SAP development transparency. Supports ABAP and non-ABAP assets in one collaboration model. Gives SAP teams a practical path into modern engineering habits without losing review governance.</p>
       <div class="metrics">
-        <div class="metric"><span class="value">Faster delivery</span><span class="label">Lorem ipsum</span></div>
-        <div class="metric"><span class="value">Lower cost</span><span class="label">Dolor sit amet</span></div>
-        <div class="metric"><span class="value">Higher quality</span><span class="label">Consectetur</span></div>
+        <div class="metric"><span class="value">Find</span><span class="label">Existing SAP assets</span></div>
+        <div class="metric"><span class="value">Share</span><span class="label">Patterns across teams</span></div>
+        <div class="metric"><span class="value">Own</span><span class="label">With visible CODEOWNERS</span></div>
       </div>
-      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
     </section>
 
     <!-- One-Pager 3 -->
     <section class="page">
-      <span class="eyebrow">One-Pager 3 of 5</span>
-      <h1>Support Operations</h1>
+      <span class="eyebrow">One-Pager 3 of 4 | Change Safety for SAP</span>
+      <h1>Easy Rollback with GitHub as the Change Memory</h1>
+      <p>Make every SAP change easier to understand, compare, and reverse by keeping the source, review, and release evidence in GitHub.</p>
+      <p>Rollback becomes a prepared operational path, not an emergency reconstruction exercise.</p>
 
-      <h2>Insights</h2>
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Change is versioned</span><p>Every approved object change has a commit, pull request, and linked rationale.</p></div>
+        <div class="step"><span class="name">2. Release is tagged</span><p>Known production states are marked and can be compared with future changes.</p></div>
+        <div class="step"><span class="name">3. Defect is isolated</span><p>Git history and PR discussion show what changed, why, and who reviewed it.</p></div>
+        <div class="step"><span class="name">4. Revert is proposed</span><p>A rollback PR can be reviewed, tested, and transported using the same controls.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
       <ul>
-        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+        <li>Less production stress: teams can compare production tags and create a controlled revert path.</li>
+        <li>Clear accountability: rollback decisions use the same transparent PR evidence as forward changes.</li>
+        <li>Lower recovery time: fewer manual investigations across transports, screenshots, and local notes.</li>
+        <li>Reusable patterns: rollback playbooks become repeatable across ECC, S/4HANA, and side-by-side extensions.</li>
       </ul>
 
-      <h2>Impact</h2>
+      <h2>SAP Fit</h2>
+      <p>Supports SAP transport discipline while adding modern version comparison and revert workflows. Helps separate source rollback decisions from deployment orchestration and environment constraints. Improves audit readiness by connecting commits, PR approvals, checks, releases, and incident response.</p>
       <div class="metrics">
-        <div class="metric"><span class="value">Faster delivery</span><span class="label">Lorem ipsum</span></div>
-        <div class="metric"><span class="value">Lower cost</span><span class="label">Dolor sit amet</span></div>
-        <div class="metric"><span class="value">Higher quality</span><span class="label">Consectetur</span></div>
+        <div class="metric"><span class="value">Know</span><span class="label">What changed in prod</span></div>
+        <div class="metric"><span class="value">Compare</span><span class="label">Release tags quickly</span></div>
+        <div class="metric"><span class="value">Revert</span><span class="label">Through review controls</span></div>
       </div>
-      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
     </section>
 
     <!-- One-Pager 4 -->
     <section class="page">
-      <span class="eyebrow">One-Pager 4 of 5</span>
-      <h1>Data Pipeline</h1>
+      <span class="eyebrow">One-Pager 4 of 4 | Build on Decided Direction</span>
+      <h1>GitHub, Advanced Security, and Open SAP Tooling</h1>
+      <p>The proposal builds on existing platform choices: GitHub for inner sourcing, GitHub Advanced Security for risk visibility, and open tooling for SAP developer feedback.</p>
+      <p>This is not a new isolated SAP platform. It is an extension of the engineering platform already chosen for transparency, collaboration, and automation.</p>
 
-      <h2>Insights</h2>
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Repository first</span><p>Source, docs, decisions, and checks live together in GitHub.</p></div>
+        <div class="step"><span class="name">2. Security built in</span><p>GHAS adds secret scanning, dependency visibility, and code scanning workflows.</p></div>
+        <div class="step"><span class="name">3. Open SAP checks</span><p>abapGit, abaplint, ATC exports, and test tooling keep feedback portable.</p></div>
+        <div class="step"><span class="name">4. LLM assisted</span><p>AI review works on top of PR evidence instead of replacing the control process.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
       <ul>
-        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+        <li>Reuse approved choices: GitHub is already the selected consolidated platform direction for SAP development.</li>
+        <li>Avoid vendor lock-in: open tooling keeps checks inspectable, portable, and easier to evolve.</li>
+        <li>Improve security posture: GHAS brings enterprise security signals directly into the development workflow.</li>
+        <li>Meet teams where they work: PRs become the shared control point for review, quality, security, and learning.</li>
       </ul>
 
-      <h2>Impact</h2>
+      <h2>SAP Fit</h2>
+      <p>Supports both ECC and S/4HANA transition needs by making code and decisions visible outside SAP GUI boundaries. Connects SAP governance with enterprise DevSecOps without forcing all feedback into a closed SAP-only tool. Creates a platform for future automation, including Copilot-style assistance and Microsoft AI SDK for SAP scenarios.</p>
       <div class="metrics">
-        <div class="metric"><span class="value">Faster delivery</span><span class="label">Lorem ipsum</span></div>
-        <div class="metric"><span class="value">Lower cost</span><span class="label">Dolor sit amet</span></div>
-        <div class="metric"><span class="value">Higher quality</span><span class="label">Consectetur</span></div>
+        <div class="metric"><span class="value">Chosen</span><span class="label">GitHub platform direction</span></div>
+        <div class="metric"><span class="value">Secure</span><span class="label">GHAS in the PR flow</span></div>
+        <div class="metric"><span class="value">Open</span><span class="label">Portable SAP checks</span></div>
       </div>
-      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-    </section>
-
-    <!-- One-Pager 5 -->
-    <section class="page">
-      <span class="eyebrow">One-Pager 5 of 5</span>
-      <h1>Release Management</h1>
-
-      <h2>Insights</h2>
-      <ul>
-        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
-      </ul>
-
-      <h2>Impact</h2>
-      <div class="metrics">
-        <div class="metric"><span class="value">Faster delivery</span><span class="label">Lorem ipsum</span></div>
-        <div class="metric"><span class="value">Lower cost</span><span class="label">Dolor sit amet</span></div>
-        <div class="metric"><span class="value">Higher quality</span><span class="label">Consectetur</span></div>
-      </div>
-      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
     </section>
   </body>
 </html>
