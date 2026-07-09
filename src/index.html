@@ -263,13 +263,14 @@
         <li>LLM Based Code Review for SAP Changes</li>
         <li>Inner Sourcing for SAP Teams</li>
         <li>Easy Rollback with GitHub as the Change Memory</li>
+        <li>Transport Sequencing and Preview Deployments</li>
         <li>GitHub, Advanced Security, and Open Tooling</li>
       </ol>
     </section>
 
     <!-- One-Pager 1 -->
     <section class="page">
-      <span class="eyebrow">One-Pager 1 of 5 | Quality Built In</span>
+      <span class="eyebrow">One-Pager 1 of 6 | Quality Built In</span>
       <h1>Quality Built In</h1>
       <p>Make SAP quality part of the development workflow instead of a late project phase. Continuous integration runs the same checks every time a change is proposed, so developers do not need to remember what to run and teams get objective feedback before review, testing, transport sequencing, or release decisions become expensive.</p>
       <p>With <a href="https://abaplint.app">abaplint.app</a>, ABAP static analysis becomes fast, configurable, and visible in the pull request. Developers see issues while the code is still fresh, reviewers get cleaner evidence, and quality standards become daily habits. For LLM-based changes, the same gates keep humans in the loop before code moves forward.</p>
@@ -300,7 +301,7 @@
 
     <!-- One-Pager 2 -->
     <section class="page">
-      <span class="eyebrow">One-Pager 2 of 5 | LLM Based Code Review for SAP Changes</span>
+      <span class="eyebrow">One-Pager 2 of 6 | LLM Based Code Review for SAP Changes</span>
       <h1>LLM Based Code Review for SAP Changes</h1>
       <p>Bring fast, consistent review feedback into the GitHub pull request before SAP experts spend their time.</p>
       <p>A reviewer gets cleaner ABAP, clearer context, and fewer avoidable defects. The team keeps the four-eyes principle, with an AI assistant handling the first pass. The LLM provider is replaceable: use the model that fits the risk, data, and enterprise sourcing requirements.</p>
@@ -332,7 +333,7 @@
 
     <!-- One-Pager 3 -->
     <section class="page">
-      <span class="eyebrow">One-Pager 3 of 5 | Inner Sourcing for SAP Teams</span>
+      <span class="eyebrow">One-Pager 3 of 6 | Inner Sourcing for SAP Teams</span>
       <h1>Inner Sourcing for SAP Teams</h1>
       <p>Use GitHub pull requests to make SAP knowledge discoverable, reusable, and easier to improve across teams.</p>
       <p>SAP development stops being hidden in isolated systems and becomes part of the shared engineering ecosystem, helping teams upskill into normal software delivery habits without reinventing a separate SAP-only wheel.</p>
@@ -364,39 +365,71 @@
 
     <!-- One-Pager 4 -->
     <section class="page">
-      <span class="eyebrow">One-Pager 4 of 5 | Easy Rollback with GitHub as the Change Memory</span>
+      <span class="eyebrow">One-Pager 4 of 6 | Easy Rollback with GitHub as the Change Memory</span>
       <h1>Easy Rollback with GitHub as the Change Memory</h1>
       <p>Make every SAP change easier to understand, compare, and reverse by keeping the source, review, and release evidence in GitHub.</p>
-      <p>Rollback becomes a prepared operational path, not an emergency reconstruction exercise. Transport sequencing <span class="labs-preview">Labs Preview</span> stays visible so teams can reason about what can move, what must wait, and what can be reversed safely. Preview deployments <span class="labs-preview">Labs Preview</span> give reviewers a temporary environment to inspect change behavior before release.</p>
+      <p>Rollback becomes a prepared operational path, not an emergency reconstruction exercise. Teams can compare production state with reviewed source, understand why a change moved forward, and propose a controlled revert using the same pull request workflow.</p>
 
       <h2>Flow</h2>
       <div class="flow">
         <div class="step"><span class="name">1. Change is versioned</span><p>Every approved object change has a commit, pull request, and linked rationale.</p></div>
-        <div class="step"><span class="name">2. Sequence is planned <span class="labs-preview">Labs Preview</span></span><p>Known production states, transport order, dependencies, and deployment evidence can be compared with future changes.</p></div>
-        <div class="step"><span class="name">3. Preview is deployed <span class="labs-preview">Labs Preview</span></span><p>A temporary preview deployment helps reviewers inspect behavior before production release.</p></div>
-        <div class="step"><span class="name">4. Revert is proposed</span><p>A rollback PR can be reviewed, tested, and transported using the same controls.</p></div>
+        <div class="step"><span class="name">2. Release state is known</span><p>Checks, approvals, transports, and deployment notes show what reached production.</p></div>
+        <div class="step"><span class="name">3. Impact is compared</span><p>Teams inspect the current state against the original change, related PRs, and incident context.</p></div>
+        <div class="step"><span class="name">4. Revert is proposed</span><p>A rollback PR can be reviewed, tested, approved, and transported using the same controls.</p></div>
       </div>
 
       <h2>Why It Matters</h2>
       <ul>
-        <li>Less production stress: teams can compare production, monitor progress, use preview deployments, and create a controlled revert path.</li>
+        <li>Less production stress: teams can compare production state, understand change history, and create a controlled revert path.</li>
         <li>Clear accountability: rollback decisions use the same transparent PR evidence as forward changes.</li>
         <li>Lower recovery time: fewer manual investigations across transports, screenshots, and local notes.</li>
         <li>Reusable patterns: rollback playbooks become repeatable across ECC, S/4HANA, and side-by-side extensions.</li>
       </ul>
 
       <h2>SAP Fit</h2>
-      <p>Supports SAP transport discipline while adding modern version comparison, sequencing, preview deployments, and revert workflows. Helps separate source rollback decisions from deployment orchestration and environment constraints. Improves audit readiness by connecting commits, PR approvals, checks, releases, transports, and incident response.</p>
+      <p>Supports SAP transport discipline while adding modern version comparison and revert workflows. Helps separate source rollback decisions from deployment orchestration and environment constraints. Improves audit readiness by connecting commits, PR approvals, checks, releases, transports, and incident response.</p>
       <div class="metrics">
         <div class="metric"><span class="value">Know</span><span class="label">What changed in prod</span></div>
-        <div class="metric"><span class="value">Transport Sequencing <span class="labs-preview">Labs Preview</span></span><span class="label">Plan transport order</span></div>
+        <div class="metric"><span class="value">Compare</span><span class="label">Source to release state</span></div>
         <div class="metric"><span class="value">Revert</span><span class="label">Through review controls</span></div>
       </div>
     </section>
 
     <!-- One-Pager 5 -->
     <section class="page">
-      <span class="eyebrow">One-Pager 5 of 5 | GitHub, Advanced Security, and Open Tooling</span>
+      <span class="eyebrow">One-Pager 5 of 6 | Transport Sequencing and Preview Deployments</span>
+      <h1>Transport Sequencing and Preview Deployments</h1>
+      <p>Make SAP releases easier to reason about before production by showing planned changes, dependencies, transport order, and preview evidence in one workflow.</p>
+      <p>Transport sequencing <span class="labs-preview">Labs Preview</span> helps teams see what can move, what must wait, and what release state they are targeting. Preview deployments <span class="labs-preview">Labs Preview</span> give reviewers a temporary environment to inspect change behavior before production release.</p>
+
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Changes are collected</span><p>Approved PRs, release tags, transport candidates, and deployment intent are visible together.</p></div>
+        <div class="step"><span class="name">2. Sequence is checked <span class="labs-preview">Labs Preview</span></span><p>Teams compare dependencies, target states, and transport order before changes move.</p></div>
+        <div class="step"><span class="name">3. Preview is deployed <span class="labs-preview">Labs Preview</span></span><p>A temporary environment lets reviewers inspect behavior before production release.</p></div>
+        <div class="step"><span class="name">4. Release is decided</span><p>Humans approve with clearer context about risk, order, and expected production impact.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
+      <ul>
+        <li>Fewer release surprises: dependencies and ordering issues become visible before transports move.</li>
+        <li>Better review evidence: reviewers inspect behavior and release context, not only source diffs.</li>
+        <li>Safer transport planning: release state and transport intent become explicit.</li>
+        <li>Stronger rollback readiness: known source and deployment state make reversals easier to reason about.</li>
+      </ul>
+
+      <h2>SAP Fit</h2>
+      <p>Complements SAP transport discipline by adding GitHub-based visibility before release. Keeps transport execution governed while giving teams earlier insight into dependency order, release state, and preview behavior.</p>
+      <div class="metrics">
+        <div class="metric"><span class="value">Sequence <span class="labs-preview">Labs Preview</span></span><span class="label">Plan transport order</span></div>
+        <div class="metric"><span class="value">Preview <span class="labs-preview">Labs Preview</span></span><span class="label">Inspect before release</span></div>
+        <div class="metric"><span class="value">Decide</span><span class="label">With release evidence</span></div>
+      </div>
+    </section>
+
+    <!-- One-Pager 6 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 6 of 6 | GitHub, Advanced Security, and Open Tooling</span>
       <h1>GitHub, Advanced Security, and Open Tooling</h1>
       <p>The proposal builds on proven platform choices: GitHub for inner sourcing, GitHub Advanced Security for risk visibility, and open tooling for SAP developer feedback.</p>
       <p>This is not a new isolated SAP platform. It is an extension of the engineering platform already chosen for transparency, collaboration, and automation, based on open tooling with a proven track record.</p>
