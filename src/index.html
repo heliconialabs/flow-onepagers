@@ -193,6 +193,21 @@
         margin-top: 0.45rem;
         text-transform: uppercase;
       }
+      .labs-preview {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--muted);
+        display: inline-block;
+        font-size: 8px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        margin-left: 0.3rem;
+        padding: 0.18rem 0.32rem;
+        text-transform: uppercase;
+        vertical-align: 0.08rem;
+        white-space: nowrap;
+      }
       .flow {
         display: grid;
         gap: 0.75rem;
@@ -238,7 +253,7 @@
       <h1>Introduction</h1>
       <p>With <a href="https://docs.heliconialabs.com/abapgit-flow.pdf">abapGit flow</a>, <a href="https://heliconialabs.com">Heliconia Labs</a> provides an end-to-end development and deployment process for SAP ABAP systems. It brings modern software delivery practices to ABAP: Git-based collaboration, pull requests, quality gates, code review, and independent changes that can move safely toward production.</p>
       <p>Together with open tooling, this creates a modern workflow where feedback is visible early, quality is built in, and ABAP code becomes accessible to contemporary engineering tools. This foundation is essential for successful LLM implementations, where clean versioned code, automated checks, and repeatable workflows determine how effectively AI can assist.</p>
-      <p>The following one-pagers highlight the workflows and focus areas that make this foundation practical, actionable, and ready to adopt: shift feedback left, monitor progress and architecture, sequence transports deliberately, keep humans in the loop, and build on open tooling instead of closed gardens.</p>
+      <p>The following one-pagers highlight the workflows and focus areas that make this foundation practical, actionable, and ready to adopt: shift feedback left, monitor progress and architecture, sequence transports deliberately, explore preview deployments, keep humans in the loop, and build on open tooling instead of closed gardens.</p>
       <h2>Contents</h2>
       <ol class="toc">
         <li>Quality Built In</li>
@@ -317,7 +332,7 @@
     <section class="page">
       <span class="eyebrow">One-Pager 3 of 5 | Enterprise Collaboration</span>
       <h1>Inner Sourcing for SAP Teams</h1>
-      <p>Use GitHub pull requests to make SAP knowledge discoverable, reusable, and easier to improve across product teams.</p>
+      <p>Use GitHub pull requests to make SAP knowledge discoverable, reusable, and easier to improve across teams.</p>
       <p>SAP development stops being hidden in isolated systems and becomes part of the shared engineering ecosystem, helping teams upskill into normal software delivery habits without reinventing a separate SAP-only wheel.</p>
 
       <h2>Flow</h2>
@@ -350,29 +365,29 @@
       <span class="eyebrow">One-Pager 4 of 5 | Change Safety for SAP</span>
       <h1>Easy Rollback with GitHub as the Change Memory</h1>
       <p>Make every SAP change easier to understand, compare, and reverse by keeping the source, review, and release evidence in GitHub.</p>
-      <p>Rollback becomes a prepared operational path, not an emergency reconstruction exercise. Transport sequencing stays visible so teams can reason about what can move, what must wait, and what can be reversed safely.</p>
+      <p>Rollback becomes a prepared operational path, not an emergency reconstruction exercise. Transport sequencing <span class="labs-preview">Labs Preview</span> stays visible so teams can reason about what can move, what must wait, and what can be reversed safely. Preview deployments <span class="labs-preview">Labs Preview</span> give reviewers a temporary environment to inspect change behavior before release.</p>
 
       <h2>Flow</h2>
       <div class="flow">
         <div class="step"><span class="name">1. Change is versioned</span><p>Every approved object change has a commit, pull request, and linked rationale.</p></div>
-        <div class="step"><span class="name">2. Release is tagged</span><p>Known production states, transport sequence, and deployment evidence can be compared with future changes.</p></div>
-        <div class="step"><span class="name">3. Defect is isolated</span><p>Git history and PR discussion show what changed, why, and who reviewed it.</p></div>
+        <div class="step"><span class="name">2. Sequence is planned <span class="labs-preview">Labs Preview</span></span><p>Known production states, transport order, dependencies, and deployment evidence can be compared with future changes.</p></div>
+        <div class="step"><span class="name">3. Preview is deployed <span class="labs-preview">Labs Preview</span></span><p>A temporary preview deployment helps reviewers inspect behavior before production release.</p></div>
         <div class="step"><span class="name">4. Revert is proposed</span><p>A rollback PR can be reviewed, tested, and transported using the same controls.</p></div>
       </div>
 
       <h2>Why It Matters</h2>
       <ul>
-        <li>Less production stress: teams can compare production tags, monitor progress, and create a controlled revert path.</li>
+        <li>Less production stress: teams can compare production tags, monitor progress, use preview deployments, and create a controlled revert path.</li>
         <li>Clear accountability: rollback decisions use the same transparent PR evidence as forward changes.</li>
         <li>Lower recovery time: fewer manual investigations across transports, screenshots, and local notes.</li>
         <li>Reusable patterns: rollback playbooks become repeatable across ECC, S/4HANA, and side-by-side extensions.</li>
       </ul>
 
       <h2>SAP Fit</h2>
-      <p>Supports SAP transport discipline while adding modern version comparison, sequencing, and revert workflows. Helps separate source rollback decisions from deployment orchestration and environment constraints. Improves audit readiness by connecting commits, PR approvals, checks, releases, transports, and incident response.</p>
+      <p>Supports SAP transport discipline while adding modern version comparison, sequencing, preview deployments, and revert workflows. Helps separate source rollback decisions from deployment orchestration and environment constraints. Improves audit readiness by connecting commits, PR approvals, checks, releases, transports, and incident response.</p>
       <div class="metrics">
         <div class="metric"><span class="value">Know</span><span class="label">What changed in prod</span></div>
-        <div class="metric"><span class="value">Transport Sequencing</span><span class="label">Release tags quickly</span></div>
+        <div class="metric"><span class="value">Transport Sequencing <span class="labs-preview">Labs Preview</span></span><span class="label">Release tags quickly</span></div>
         <div class="metric"><span class="value">Revert</span><span class="label">Through review controls</span></div>
       </div>
     </section>
@@ -401,7 +416,7 @@
       </ul>
 
       <h2>SAP Fit</h2>
-      <p>Supports both ECC and S/4HANA transition needs by making code and decisions visible outside SAP GUI boundaries. Connects SAP governance with enterprise DevSecOps without forcing feedback into a closed SAP-only tool. Creates a platform for future automation, including real autonomous agents, Copilot-style assistance, Microsoft AI SDK for SAP scenarios, and other provider-neutral LLM options.</p>
+      <p>Supports both ECC and S/4HANA transition needs by making code and decisions visible outside SAP GUI boundaries. Connects SAP governance with enterprise DevSecOps without forcing feedback into a closed SAP-only tool. Creates a platform for future automation, including real autonomous agents, Copilot-style assistance, and other provider-neutral LLM options.</p>
       <div class="metrics">
         <div class="metric"><span class="value">Chosen</span><span class="label">GitHub platform direction</span></div>
         <div class="metric"><span class="value">Secure</span><span class="label">GHAS in the PR flow</span></div>
