@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Flow One-Pagers</title>
+    <style>
+      :root {
+        --ink: #111;
+        --body: #2e2e2e;
+        --muted: #6f6f6f;
+        --quiet: #9a9a9a;
+        --line: #d8d8d8;
+        --panel: #f4f4f4;
+        --paper: #fff;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        font-family: "Arial", "Helvetica", sans-serif;
+        color: var(--ink);
+        line-height: 1.55;
+        margin: 0;
+        background: var(--paper);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      /* Each section is its own printed page. */
+      .page {
+        min-height: 247mm; /* A4 height minus top+bottom margins */
+        page-break-after: always;
+        position: relative;
+      }
+      .page:last-child { page-break-after: auto; }
+
+      h1 {
+        position: relative;
+        font-size: 31px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        line-height: 1.08;
+        margin: 2.25rem 0 1.25rem;
+        max-width: 13.5cm;
+      }
+      h2 {
+        border-top: 1px solid var(--line);
+        color: var(--ink);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        margin: 1.7rem 0 0.75rem;
+        padding-top: 0.7rem;
+        text-transform: uppercase;
+      }
+      p, li { font-size: 12.25px; }
+      p {
+        color: var(--body);
+        margin: 0 0 0.85rem;
+        max-width: 15.5cm;
+      }
+      ul {
+        list-style: none;
+        margin: 0.35rem 0 0;
+        padding: 0;
+      }
+      li {
+        margin: 0.45rem 0;
+        padding-left: 1.05rem;
+        position: relative;
+      }
+      ul li::before {
+        background: var(--ink);
+        content: "";
+        height: 4px;
+        left: 0;
+        position: absolute;
+        top: 0.67em;
+        width: 4px;
+      }
+
+      /* --- Cover page --- */
+      .cover {
+        min-height: 247mm;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .cover .logo {
+        filter: grayscale(1);
+        margin-bottom: 3.35rem;
+        width: 46%;
+      }
+      .cover .logo img { width: 100%; height: auto; }
+      .cover h1 { margin: 0; }
+      .doc-title {
+        font-size: 41px;
+        font-weight: 700;
+        max-width: none;
+      }
+      .doc-subtitle {
+        color: var(--muted);
+        font-weight: 300;
+        font-size: 15px;
+        letter-spacing: 0.16em;
+        margin: 0.95rem 0 0;
+      }
+      .doc-date {
+        color: var(--quiet);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        margin: 0.75rem 0 0;
+        text-transform: uppercase;
+      }
+
+      /* --- Contents --- */
+      .toc {
+        color: var(--ink);
+        counter-reset: toc;
+        list-style: none;
+        margin: 0.35rem 0 0;
+        padding: 0;
+      }
+      .toc li {
+        border-bottom: 1px solid var(--line);
+        counter-increment: toc;
+        display: flex;
+        font-size: 13px;
+        gap: 0.85rem;
+        margin: 0;
+        padding: 0.62rem 0;
+      }
+      .toc li::before {
+        color: var(--quiet);
+        content: counter(toc, decimal-leading-zero);
+        flex: 0 0 1.6rem;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        padding-top: 0.12rem;
+      }
+
+      /* --- One-pager --- */
+      .eyebrow {
+        display: block;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        margin-top: 1.9rem;
+        max-width: 13.5cm;
+        padding-bottom: 0.55rem;
+        text-transform: uppercase;
+      }
+      .eyebrow + h1 { margin-top: 0.5rem; }
+
+      .metrics {
+        display: grid;
+        gap: 0.85rem;
+        grid-template-columns: repeat(3, 1fr);
+        margin: 0.75rem 0 1.35rem;
+        padding-right: 1px;
+      }
+      .metric {
+        background: linear-gradient(145deg, #f9f9f9 0%, #eeeeee 100%);
+        border: 1px solid #cfcfcf;
+        border-radius: 16px 8px 18px 8px;
+        box-shadow: inset 0 0 0 1px #fff;
+        min-height: 92px;
+        padding: 0.95rem 0.85rem 0.8rem;
+      }
+      .metric .value {
+        color: var(--ink);
+        display: block;
+        font-size: 14.5px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      .metric .label {
+        color: var(--muted);
+        display: block;
+        font-size: 10px;
+        letter-spacing: 0.05em;
+        line-height: 1.25;
+        margin-top: 0.45rem;
+        text-transform: uppercase;
+      }
+      .labs-preview {
+        background: var(--ink);
+        border: 1px solid var(--ink);
+        border-radius: 999px;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+        color: #fff;
+        display: inline-block;
+        font-size: 6.5px;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        line-height: 1;
+        margin-left: 0;
+        padding: 0.18rem 0.32rem 0.16rem;
+        text-transform: uppercase;
+        vertical-align: 0.12rem;
+        white-space: nowrap;
+      }
+      .step .labs-preview,
+      .metric .labs-preview {
+        display: table;
+        margin: 0.32rem 0 0;
+        vertical-align: baseline;
+      }
+      .flow {
+        display: grid;
+        gap: 0.75rem;
+        grid-template-columns: repeat(4, 1fr);
+        margin: 0.75rem 0 1.2rem;
+        padding-right: 1px;
+      }
+      .step {
+        background: linear-gradient(145deg, #f9f9f9 0%, #eeeeee 100%);
+        border: 1px solid #cfcfcf;
+        border-radius: 16px 8px 18px 8px;
+        box-shadow: inset 0 0 0 1px #fff;
+        min-height: 118px;
+        padding: 0.85rem 0.7rem 0.75rem;
+      }
+      .step .name {
+        color: var(--ink);
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 0.42rem;
+      }
+      .step p {
+        color: var(--muted);
+        font-size: 10.8px;
+        line-height: 1.35;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Cover -->
+    <section class="page cover">
+      <div class="logo"><img src="img/heliconialabs.svg" alt="Heliconia Labs" /></div>
+      <h1 class="doc-title">Flow One-Pagers</h1>
+      <p class="doc-subtitle">Heliconia Labs ApS</p>
+      <p class="doc-date">July 2026</p>
+    </section>
+
+    <!-- Introduction -->
+    <section class="page">
+      <h1>Introduction</h1>
+      <p>With <a href="https://docs.heliconialabs.com/abapgit-flow.pdf">abapGit flow</a>, <a href="https://heliconialabs.com">Heliconia Labs</a> provides an end-to-end development and deployment process for SAP ABAP systems. It brings modern software delivery practices to ABAP: Git-based collaboration, pull requests, quality gates, code review, and independent changes that can move safely toward production.</p>
+      <p>Together with open tooling, this creates a modern workflow where feedback is visible early, quality is built in, and ABAP code becomes accessible to contemporary engineering tools. This foundation is essential for successful LLM implementations, where clean versioned code, automated checks, and repeatable workflows determine how effectively AI can assist.</p>
+      <p>Across all of these topics, the focus is developer experience and productivity: fewer manual checklists, clearer review context, faster feedback, and workflows that let SAP developers work with the same confidence and ergonomics as the rest of the engineering organization.</p>
+      <p>The following one-pagers highlight the workflows and focus areas that make this foundation practical, actionable, and ready to adopt: build quality in, automate test data and scenarios, review changes with LLM assistance, inner source across teams, onboard developers faster, roll back with confidence, build on open tooling instead of walled gardens, govern clean core decisions, monitor repository health, and sequence transports with preview deployments.</p>
+      <h2>Contents</h2>
+      <ol class="toc">
+        <li>Quality Built In</li>
+        <li>Test Data and Scenario Automation</li>
+        <li>LLM-Based Code Review for SAP Changes</li>
+        <li>Inner Sourcing for SAP Teams</li>
+        <li>Developer Onboarding and Enablement</li>
+        <li>Easy Rollback with GitHub as the Change Memory</li>
+        <li>GitHub, Advanced Security, and Open Tooling</li>
+        <li>Clean Core and Extension Governance</li>
+        <li>Repository Health and Progress Visibility</li>
+        <li>Transport Sequencing and Preview Deployments</li>
+      </ol>
+    </section>
+
+    <!-- One-Pager 1 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 1 of 10 | Quality Built In</span>
+      <h1>Quality Built In</h1>
+      <p>Make SAP quality part of the development workflow instead of a late project phase. Continuous integration runs the same checks every time a change is proposed, so developers do not need to remember what to run and teams get objective feedback before review, testing, transport sequencing, or release decisions become expensive.</p>
+      <p>With <a href="https://abaplint.app">abaplint.app</a>, ABAP static analysis becomes fast, configurable, and visible in the pull request. Developers see issues while the code is still fresh, reviewers get cleaner evidence, and quality standards become daily habits. For LLM-based changes, the same gates keep humans in the loop before code moves forward.</p>
+
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Developer pushes</span><p>ABAP source, configuration, documentation, and tests land in GitHub as one reviewable change.</p></div>
+        <div class="step"><span class="name">2. CI starts</span><p>Continuous integration runs static analysis, tests, security checks, and policy gates automatically.</p></div>
+        <div class="step"><span class="name">3. Feedback returns</span><p>abaplint.app reports Clean ABAP, syntax, naming, and project-specific findings directly in the PR.</p></div>
+        <div class="step"><span class="name">4. Human approves</span><p>Developers fix issues before approval, while reviewers validate LLM-based changes and final intent.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
+      <ul>
+        <li>Shift feedback left: problems surface at commit and pull request time, not during transport or production validation.</li>
+        <li>No checklist burden: developers do not need to remember which commands, static analysis, or test suites to run.</li>
+        <li>Consistent standards: every change is checked against the same automated rules before expert review time is spent.</li>
+      </ul>
+
+      <h2>SAP Fit</h2>
+      <p>Quality gates complement SAP transport discipline by adding earlier evidence. abaplint.app, abapGit, unit tests, and repository documentation form an open, inspectable toolchain that supports both ECC and S/4HANA work without locking teams into a closed quality process.</p>
+      <div class="metrics">
+        <div class="metric"><span class="value">CI</span><span class="label">Checks every pull request</span></div>
+        <div class="metric"><span class="value">abaplint.app</span><span class="label">Static analysis for ABAP</span></div>
+        <div class="metric"><span class="value">Built In</span><span class="label">Quality before transport</span></div>
+      </div>
+    </section>
+
+    <!-- One-Pager 2 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 2 of 10 | Test Data and Scenario Automation</span>
+      <h1>Test Data and Scenario Automation</h1>
+      <p>Make SAP testing repeatable by treating unit tests, test scenarios, expected outcomes, and representative test data as part of the development workflow.</p>
+      <p>Quality gates prove that code can pass checks, but business confidence also depends on realistic process paths. Pull requests can connect code changes with unit test coverage, scenarios, data, and evidence needed to show that the behavior works before release pressure builds.</p>
+
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Scenario is described</span><p>The PR links code changes to business scenarios, expected behavior, and relevant SAP process steps.</p></div>
+        <div class="step"><span class="name">2. Test data is prepared</span><p>Representative materials, customers, orders, roles, or fixture records are documented or generated repeatably.</p></div>
+        <div class="step"><span class="name">3. Unit tests run early</span><p>Focused unit tests prove the code path first, then integration checks, regression scripts, or preview validation exercise the broader scenario.</p></div>
+        <div class="step"><span class="name">4. Evidence stays attached</span><p>Results, screenshots, logs, and reviewer decisions remain connected to the pull request.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
+      <ul>
+        <li>Earlier defect discovery: unit tests catch logic regressions before full SAP scenario validation is needed.</li>
+        <li>Repeatable validation: teams reduce manual retesting of the same SAP process paths.</li>
+        <li>Clearer business review: reviewers can see expected behavior, relevant data, and proof of execution.</li>
+        <li>Better AI guardrails: LLM-assisted changes must prove behavior, not only syntax or style.</li>
+      </ul>
+
+      <h2>SAP Fit</h2>
+      <p>SAP changes often depend on realistic business data and process context. Connecting ABAP code, unit tests, scenario descriptions, test data, automated checks, and review evidence in GitHub makes validation easier to repeat across ECC, S/4HANA, and preview environments.</p>
+      <div class="metrics">
+        <div class="metric"><span class="value">Unit Tests</span><span class="label">Code paths proven early</span></div>
+        <div class="metric"><span class="value">Data</span><span class="label">Repeatable test setup</span></div>
+        <div class="metric"><span class="value">Evidence</span><span class="label">Results linked to PRs</span></div>
+      </div>
+    </section>
+
+    <!-- One-Pager 3 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 3 of 10 | LLM-Based Code Review for SAP Changes</span>
+      <h1>LLM-Based Code Review for SAP Changes</h1>
+      <p>Bring fast, consistent review feedback into the GitHub pull request before SAP experts spend their time.</p>
+      <p>A reviewer gets cleaner ABAP, clearer context, and fewer avoidable defects. The team keeps the four-eyes principle, with an AI assistant handling the first pass. The LLM provider is replaceable: use the model that fits the risk, data, and enterprise sourcing requirements.</p>
+
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Developer opens PR</span><p>ABAP, config-as-code, documentation, and tests are visible in one review surface.</p></div>
+        <div class="step"><span class="name">2. CI evidence appears</span><p>Static analysis, unit tests, security scanning, and policy checks give objective signals.</p></div>
+        <div class="step"><span class="name">3. LLM review comments</span><p>The assistant highlights risky diffs, missing tests, unclear naming, guideline drift, and architecture impact.</p></div>
+        <div class="step"><span class="name">4. Human approves</span><p>SAP experts decide with better signal, traceability, and shared context.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
+      <ul>
+        <li>Higher review quality: consistent first-pass checks against Clean ABAP, local SAP guidelines, and PR evidence.</li>
+        <li>Shift feedback left: comments arrive while the developer still has the change in working memory.</li>
+        <li>Better use of experts: senior reviewers focus on architecture, business risk, and SAP-specific judgment.</li>
+        <li>Auditable decisions: every suggestion, response, approval, and human override stays attached to the pull request.</li>
+      </ul>
+
+      <h2>SAP Fit</h2>
+      <p>Complements a standard pull request process and a GitHub-based platform direction. It builds on CI evidence, open tooling, and repository-based documentation. Keeps accountability with the human approver while enabling real autonomous first-pass analysis from any suitable provider.</p>
+      <div class="metrics">
+        <div class="metric"><span class="value">Fast</span><span class="label">Feedback at PR creation</span></div>
+        <div class="metric"><span class="value">Any Provider</span><span class="label">Model of your choice</span></div>
+        <div class="metric"><span class="value">Learn</span><span class="label">Guidelines reinforced daily</span></div>
+      </div>
+    </section>
+
+    <!-- One-Pager 4 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 4 of 10 | Inner Sourcing for SAP Teams</span>
+      <h1>Inner Sourcing for SAP Teams</h1>
+      <p>Use GitHub pull requests to make SAP knowledge discoverable, reusable, and easier to improve across teams.</p>
+      <p>SAP development stops being hidden in isolated systems and becomes part of the shared engineering ecosystem, helping teams upskill into normal software delivery habits without reinventing a separate SAP-only wheel.</p>
+
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Discover</span><p>Teams find existing SAP packages, APIs, extensions, and examples in GitHub.</p></div>
+        <div class="step"><span class="name">2. Learn</span><p>README files, PRs, ADRs, checks, and architecture notes show how the solution is meant to evolve.</p></div>
+        <div class="step"><span class="name">3. Contribute</span><p>Developers propose improvements through a familiar pull request workflow.</p></div>
+        <div class="step"><span class="name">4. Reuse</span><p>Shared components become easier to trust because ownership and quality signals are visible.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
+      <ul>
+        <li>Less duplicate work: teams can see and reuse existing solutions before creating another variant.</li>
+        <li>Better onboarding: new SAP developers learn from real repositories, reviews, accepted patterns, and visible architecture decisions.</li>
+        <li>Stronger ownership: CODEOWNERS, branch protection, and PR review make responsibility explicit.</li>
+        <li>Cross-domain collaboration: non-SAP engineers can contribute documentation, APIs, tests, and automation.</li>
+      </ul>
+
+      <h2>SAP Fit</h2>
+      <p>Fits organizations that have standardized on GitHub for development transparency. Supports ABAP and non-ABAP assets in one collaboration model. Gives SAP teams a practical path into modern engineering habits without losing review governance or creating a walled garden.</p>
+      <div class="metrics">
+        <div class="metric"><span class="value">Find</span><span class="label">Existing SAP assets</span></div>
+        <div class="metric"><span class="value">Share</span><span class="label">Patterns across teams</span></div>
+        <div class="metric"><span class="value">Own</span><span class="label">With visible CODEOWNERS</span></div>
+      </div>
+    </section>
+
+    <!-- One-Pager 5 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 5 of 10 | Developer Onboarding and Enablement</span>
+      <h1>Developer Onboarding and Enablement</h1>
+      <p>Make SAP development easier to join, understand, and improve by moving knowledge into repositories, pull requests, automated checks, and repeatable workflows.</p>
+      <p>New developers, consultants, and cross-functional engineers should not depend on tribal knowledge as the main interface to the SAP landscape. Repositories can show how the system is organized, which standards apply, who owns what, and how a change moves safely from idea to production.</p>
+
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Repository explains</span><p>README files, package structure, ADRs, examples, and ownership metadata show how the solution is organized.</p></div>
+        <div class="step"><span class="name">2. Checks teach standards</span><p>abaplint.app, CI, tests, and PR templates reinforce local rules every time a developer contributes.</p></div>
+        <div class="step"><span class="name">3. Reviews share context</span><p>Pull requests make naming, architecture, business intent, and SAP-specific tradeoffs visible.</p></div>
+        <div class="step"><span class="name">4. Developers contribute</span><p>New contributors learn from working examples, early feedback, and repeatable delivery paths.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
+      <ul>
+        <li>Faster onboarding: developers learn from real repositories, accepted patterns, review history, and automated feedback.</li>
+        <li>Less expert dependency: teams reduce reliance on a few long-tenured SAP specialists for everyday delivery knowledge.</li>
+        <li>Standards in daily work: Clean ABAP, local conventions, security expectations, and testing habits are reinforced continuously.</li>
+        <li>Reusable learning material: pull requests, comments, checks, and documentation become examples for the next contributor.</li>
+      </ul>
+
+      <h2>SAP Fit</h2>
+      <p>Supports the move from SAP-only delivery habits to shared engineering practices without losing SAP-specific guidance. Helps ABAP developers, consultants, architects, and non-SAP engineers understand the same repository evidence, quality gates, ownership model, and release path.</p>
+      <div class="metrics">
+        <div class="metric"><span class="value">Learn</span><span class="label">Standards visible in repositories</span></div>
+        <div class="metric"><span class="value">Contribute</span><span class="label">Guided by PRs and checks</span></div>
+        <div class="metric"><span class="value">Scale</span><span class="label">Less reliance on tribal knowledge</span></div>
+      </div>
+    </section>
+
+    <!-- One-Pager 6 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 6 of 10 | Easy Rollback with GitHub as the Change Memory</span>
+      <h1>Easy Rollback with GitHub as the Change Memory</h1>
+      <p>Make every SAP change easier to understand, compare, and reverse by keeping the source, review, and release evidence in GitHub.</p>
+      <p>Rollback becomes a prepared operational path, not an emergency reconstruction exercise. Teams can compare production state with reviewed source, understand why a change moved forward, and propose a controlled revert using the same pull request workflow.</p>
+
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Change is versioned</span><p>Every approved object change has a commit, pull request, and linked rationale.</p></div>
+        <div class="step"><span class="name">2. Release state is known</span><p>Checks, approvals, transports, and deployment notes show what reached production.</p></div>
+        <div class="step"><span class="name">3. Impact is compared</span><p>Teams inspect the current state against the original change, related PRs, and incident context.</p></div>
+        <div class="step"><span class="name">4. Revert is proposed</span><p>A rollback PR can be reviewed, tested, approved, and transported using the same controls.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
+      <ul>
+        <li>Less production stress: teams can compare production state, understand change history, and create a controlled revert path.</li>
+        <li>Clear accountability: rollback decisions use the same transparent PR evidence as forward changes.</li>
+        <li>Lower recovery time: fewer manual investigations across transports, screenshots, and local notes.</li>
+        <li>Reusable patterns: rollback playbooks become repeatable across ECC, S/4HANA, and side-by-side extensions.</li>
+      </ul>
+
+      <h2>SAP Fit</h2>
+      <p>Supports SAP transport discipline while adding modern version comparison and revert workflows. Helps separate source rollback decisions from deployment orchestration and environment constraints. Improves audit readiness by connecting commits, PR approvals, checks, releases, transports, and incident response.</p>
+      <div class="metrics">
+        <div class="metric"><span class="value">Know</span><span class="label">What changed in prod</span></div>
+        <div class="metric"><span class="value">Compare</span><span class="label">Source to release state</span></div>
+        <div class="metric"><span class="value">Revert</span><span class="label">Through review controls</span></div>
+      </div>
+    </section>
+
+    <!-- One-Pager 7 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 7 of 10 | GitHub, Advanced Security, and Open Tooling</span>
+      <h1>GitHub, Advanced Security, and Open Tooling</h1>
+      <p>This approach builds on proven platform choices: GitHub for inner sourcing, GitHub Advanced Security for risk visibility, and open tooling for SAP developer feedback.</p>
+      <p>This is not a new isolated SAP platform. It is an extension of the engineering platform already chosen for transparency, collaboration, and automation, based on open tooling with a proven track record.</p>
+
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Repository first</span><p>Source, docs, decisions, and checks live together in GitHub.</p></div>
+        <div class="step"><span class="name">2. Security built in</span><p>GHAS adds secret scanning, dependency visibility, and code scanning workflows.</p></div>
+        <div class="step"><span class="name">3. Open SAP checks</span><p>abapGit, test tooling, and CI quality gates keep feedback portable.</p></div>
+        <div class="step"><span class="name">4. Autonomous, governed</span><p>AI assistance can use any provider and work on PR evidence while humans retain control.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
+      <ul>
+        <li>Reuse proven choices: for many organizations GitHub is already the consolidated engineering platform, and SAP development can join it.</li>
+        <li>Avoid vendor lock-in: open tooling keeps checks inspectable, portable, proven, and easier to evolve.</li>
+        <li>Improve security posture: GHAS brings enterprise security signals directly into the development workflow.</li>
+        <li>Meet teams where they work: PRs become the shared control point for review, quality, security, progress monitoring, and learning.</li>
+      </ul>
+
+      <h2>SAP Fit</h2>
+      <p>Supports both ECC and S/4HANA transition needs by making code and decisions visible outside SAP GUI boundaries. Connects SAP governance with enterprise DevSecOps without forcing feedback into a closed SAP-only tool. Creates a platform for future automation, including real autonomous agents, Copilot-style assistance, and other provider-neutral LLM options.</p>
+      <div class="metrics">
+        <div class="metric"><span class="value">Chosen</span><span class="label">GitHub platform direction</span></div>
+        <div class="metric"><span class="value">Secure</span><span class="label">GHAS in the PR flow</span></div>
+        <div class="metric"><span class="value">Open</span><span class="label">Portable SAP checks</span></div>
+      </div>
+    </section>
+
+    <!-- One-Pager 8 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 8 of 10 | Clean Core and Extension Governance</span>
+      <h1>Clean Core and Extension Governance</h1>
+      <p>Use GitHub-based review and automation to make SAP clean core decisions visible, deliberate, and repeatable.</p>
+      <p>Teams should be able to see when a change belongs in standard configuration, an ABAP enhancement, a side-by-side extension, an API, or a temporary exception. Clean core becomes practical when architectural intent is reviewed before implementation choices harden.</p>
+
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Intent is declared</span><p>The PR explains whether the change touches core ABAP, an enhancement point, an API, configuration, or an extension.</p></div>
+        <div class="step"><span class="name">2. Rules apply</span><p>Review templates, CODEOWNERS, checks, and guidelines steer clean core decisions before merge.</p></div>
+        <div class="step"><span class="name">3. Exceptions are owned</span><p>Necessary deviations are visible, justified, assigned, and time-bounded instead of becoming hidden debt.</p></div>
+        <div class="step"><span class="name">4. Upgrade risk drops</span><p>Teams preserve a clearer path for S/4HANA upgrades, cloud readiness, and future SAP maintenance.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
+      <ul>
+        <li>Practical clean core: architecture guidance appears in the pull request, not only in strategy documents.</li>
+        <li>Lower upgrade risk: custom ABAP, modifications, and exceptions become easier to identify and manage.</li>
+        <li>Lightweight governance: architects get a review point without slowing every low-risk change.</li>
+        <li>Visible rationale: teams can compare extension options and understand why a decision was made.</li>
+      </ul>
+
+      <h2>SAP Fit</h2>
+      <p>Supports ECC-to-S/4HANA transition work by connecting abapGit flow with enterprise architecture. Every change can be reviewed not only for correctness, but also for where it should live in the SAP landscape and how it affects future maintainability.</p>
+      <div class="metrics">
+        <div class="metric"><span class="value">Decide</span><span class="label">Core, extension, or config</span></div>
+        <div class="metric"><span class="value">Govern</span><span class="label">Architecture rules in PRs</span></div>
+        <div class="metric"><span class="value">Upgrade</span><span class="label">Lower future migration risk</span></div>
+      </div>
+    </section>
+
+    <!-- One-Pager 9 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 9 of 10 | Repository Health and Progress Visibility</span>
+      <h1>Repository Health and Progress Visibility</h1>
+      <p>Turn SAP development from a hidden transport queue into an observable engineering system. GitHub repositories, pull requests, CI checks, review activity, security findings, and release signals make progress visible without asking teams to maintain separate status decks.</p>
+      <p>Repository health gives architects, leads, and managers a shared view of delivery quality. Teams can see where work is blocked, which changes carry risk, whether ownership is clear, and how modern SAP engineering habits are being adopted over time.</p>
+
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Work is captured</span><p>ABAP source, documentation, tests, checks, and review discussions live together in GitHub.</p></div>
+        <div class="step"><span class="name">2. Signals are collected</span><p>CI, abaplint.app, GHAS, PR status, review activity, and release metadata create objective evidence.</p></div>
+        <div class="step"><span class="name">3. Progress is monitored</span><p>Teams see bottlenecks, quality trends, ownership gaps, and release readiness across repositories.</p></div>
+        <div class="step"><span class="name">4. Decisions improve</span><p>Architects and managers act on real delivery signals instead of anecdotes or late-stage surprises.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
+      <ul>
+        <li>Transparent delivery: SAP progress becomes visible through the normal pull request and release workflow.</li>
+        <li>Less reporting overhead: status comes from real engineering activity instead of separate manual updates.</li>
+        <li>Earlier risk signals: review queues, failing checks, unclear ownership, and risky changes surface before release pressure builds.</li>
+        <li>Continuous governance: architecture and quality discussions can happen from repository evidence, not only in meetings.</li>
+      </ul>
+
+      <h2>SAP Fit</h2>
+      <p>Complements SAP transport governance by showing the health of the work before it reaches release planning. Connects ABAP repositories, CI evidence, security signals, ownership, and deployment context into one inspectable view that supports both team-level improvement and leadership-level adoption tracking.</p>
+      <div class="metrics">
+        <div class="metric"><span class="value">Visible</span><span class="label">Delivery status from PR evidence</span></div>
+        <div class="metric"><span class="value">Measurable</span><span class="label">Quality, review, and release signals</span></div>
+        <div class="metric"><span class="value">Actionable</span><span class="label">Bottlenecks and risk surfaced early</span></div>
+      </div>
+    </section>
+
+    <!-- One-Pager 10 -->
+    <section class="page">
+      <span class="eyebrow">One-Pager 10 of 10 | Transport Sequencing and Preview Deployments</span>
+      <h1>Transport Sequencing and Preview Deployments</h1>
+      <p>Make SAP releases easier to reason about before production by showing planned changes, dependencies, transport order, and preview evidence in one workflow.</p>
+      <p>Transport sequencing <span class="labs-preview">Labs Preview</span> helps teams see what can move, what must wait, and what release state they are targeting. Preview deployments <span class="labs-preview">Labs Preview</span> give reviewers a temporary environment to inspect change behavior before production release.</p>
+
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Changes are collected</span><p>Approved PRs, release tags, transport candidates, and deployment intent are visible together.</p></div>
+        <div class="step"><span class="name">2. Sequence is checked <span class="labs-preview">Labs Preview</span></span><p>Teams compare dependencies, target states, and transport order before changes move.</p></div>
+        <div class="step"><span class="name">3. Preview is deployed <span class="labs-preview">Labs Preview</span></span><p>A temporary environment lets reviewers inspect behavior before production release.</p></div>
+        <div class="step"><span class="name">4. Release is decided</span><p>Humans approve with clearer context about risk, order, and expected production impact.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
+      <ul>
+        <li>Fewer release surprises: dependencies and ordering issues become visible before transports move.</li>
+        <li>Better review evidence: reviewers inspect behavior and release context, not only source diffs.</li>
+        <li>Safer transport planning: release state and transport intent become explicit.</li>
+        <li>Stronger rollback readiness: known source and deployment state make reversals easier to reason about.</li>
+      </ul>
+
+      <h2>SAP Fit</h2>
+      <p>Complements SAP transport discipline by adding GitHub-based visibility before release. Keeps transport execution governed while giving teams earlier insight into dependency order, release state, and preview behavior.</p>
+      <div class="metrics">
+        <div class="metric"><span class="value">Sequence <span class="labs-preview">Labs Preview</span></span><span class="label">Plan transport order</span></div>
+        <div class="metric"><span class="value">Preview <span class="labs-preview">Labs Preview</span></span><span class="label">Inspect before release</span></div>
+        <div class="metric"><span class="value">Decide</span><span class="label">With release evidence</span></div>
+      </div>
+    </section>
+  </body>
+</html>
