@@ -307,19 +307,20 @@
     <section class="page">
       <span class="eyebrow">One-Pager 2 of 10 | Test Data and Scenario Automation</span>
       <h1>Test Data and Scenario Automation</h1>
-      <p>Make SAP testing repeatable by treating test scenarios, expected outcomes, and representative test data as part of the development workflow.</p>
-      <p>Quality gates prove that code can pass checks, but business confidence also depends on realistic process paths. Pull requests can connect code changes with the scenarios, data, and evidence needed to show that the behavior works before release pressure builds.</p>
+      <p>Make SAP testing repeatable by treating unit tests, test scenarios, expected outcomes, and representative test data as part of the development workflow.</p>
+      <p>Quality gates prove that code can pass checks, but business confidence also depends on realistic process paths. Pull requests can connect code changes with unit test coverage, scenarios, data, and evidence needed to show that the behavior works before release pressure builds.</p>
 
       <h2>Flow</h2>
       <div class="flow">
         <div class="step"><span class="name">1. Scenario is described</span><p>The PR links code changes to business scenarios, expected behavior, and relevant SAP process steps.</p></div>
         <div class="step"><span class="name">2. Test data is prepared</span><p>Representative materials, customers, orders, roles, or fixture records are documented or generated repeatably.</p></div>
-        <div class="step"><span class="name">3. Automation runs early</span><p>Unit tests, integration checks, regression scripts, or preview validation exercise the scenario before release.</p></div>
+        <div class="step"><span class="name">3. Unit tests run early</span><p>Focused unit tests prove the code path first, then integration checks, regression scripts, or preview validation exercise the broader scenario.</p></div>
         <div class="step"><span class="name">4. Evidence stays attached</span><p>Results, screenshots, logs, and reviewer decisions remain connected to the pull request.</p></div>
       </div>
 
       <h2>Why It Matters</h2>
       <ul>
+        <li>Earlier defect discovery: unit tests catch logic regressions before full SAP scenario validation is needed.</li>
         <li>Repeatable validation: teams reduce manual retesting of the same SAP process paths.</li>
         <li>Clearer business review: reviewers can see expected behavior, relevant data, and proof of execution.</li>
         <li>Better AI guardrails: LLM-assisted changes must prove behavior, not only syntax or style.</li>
@@ -327,9 +328,9 @@
       </ul>
 
       <h2>SAP Fit</h2>
-      <p>SAP changes often depend on realistic business data and process context. Connecting ABAP code, scenario descriptions, test data, automated checks, and review evidence in GitHub makes validation easier to repeat across ECC, S/4HANA, and preview environments.</p>
+      <p>SAP changes often depend on realistic business data and process context. Connecting ABAP code, unit tests, scenario descriptions, test data, automated checks, and review evidence in GitHub makes validation easier to repeat across ECC, S/4HANA, and preview environments.</p>
       <div class="metrics">
-        <div class="metric"><span class="value">Scenario</span><span class="label">Business behavior described</span></div>
+        <div class="metric"><span class="value">Unit Tests</span><span class="label">Code paths proven early</span></div>
         <div class="metric"><span class="value">Data</span><span class="label">Repeatable test setup</span></div>
         <div class="metric"><span class="value">Evidence</span><span class="label">Results linked to PRs</span></div>
       </div>
