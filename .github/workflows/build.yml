@@ -11,6 +11,7 @@ jobs:
     - name: Run npm steps
       run: |
         npm install
+        npx puppeteer browsers install chrome
         npm test
     - name: Deploy to docs.heliconialabs.com
       uses: peaceiris/actions-gh-pages@v4
