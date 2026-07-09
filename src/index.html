@@ -195,17 +195,21 @@
       }
       .flow {
         display: grid;
-        gap: 0.65rem;
+        gap: 0.75rem;
         grid-template-columns: repeat(4, 1fr);
         margin: 0.75rem 0 1.2rem;
+        padding-right: 1px;
       }
       .step {
-        border-top: 3px solid var(--ink);
-        background: var(--panel);
+        background: linear-gradient(145deg, #f9f9f9 0%, #eeeeee 100%);
+        border: 1px solid #cfcfcf;
+        border-radius: 16px 8px 18px 8px;
+        box-shadow: inset 0 0 0 1px #fff;
         min-height: 118px;
-        padding: 0.7rem 0.6rem 0.65rem;
+        padding: 0.85rem 0.7rem 0.75rem;
       }
       .step .name {
+        color: var(--ink);
         display: block;
         font-size: 12px;
         font-weight: 700;
@@ -269,7 +273,7 @@
       </ul>
 
       <h2>SAP Fit</h2>
-      <p>Quality gates complement SAP transport discipline by adding earlier evidence. abaplint.app, abapGit, unit tests, ATC exports, and repository documentation form an open, inspectable toolchain that supports both ECC and S/4HANA work without locking teams into a closed quality process.</p>
+      <p>Quality gates complement SAP transport discipline by adding earlier evidence. abaplint.app, abapGit, unit tests, and repository documentation form an open, inspectable toolchain that supports both ECC and S/4HANA work without locking teams into a closed quality process.</p>
       <div class="metrics">
         <div class="metric"><span class="value">CI</span><span class="label">Checks every pull request</span></div>
         <div class="metric"><span class="value">abaplint.app</span><span class="label">Static analysis for ABAP</span></div>
@@ -301,7 +305,7 @@
       </ul>
 
       <h2>SAP Fit</h2>
-      <p>Complements the decided standard pull request process and existing GitHub platform direction. It builds on CI evidence, open tooling, ATC exports, and repository-based documentation. Keeps accountability with the human approver while enabling real autonomous first-pass analysis from any suitable provider.</p>
+      <p>Complements the decided standard pull request process and existing GitHub platform direction. It builds on CI evidence, open tooling, and repository-based documentation. Keeps accountability with the human approver while enabling real autonomous first-pass analysis from any suitable provider.</p>
       <div class="metrics">
         <div class="metric"><span class="value">Fast</span><span class="label">Feedback at PR creation</span></div>
         <div class="metric"><span class="value">Any Provider</span><span class="label">Comments linked to diffs</span></div>
@@ -384,7 +388,7 @@
       <div class="flow">
         <div class="step"><span class="name">1. Repository first</span><p>Source, docs, decisions, and checks live together in GitHub.</p></div>
         <div class="step"><span class="name">2. Security built in</span><p>GHAS adds secret scanning, dependency visibility, and code scanning workflows.</p></div>
-        <div class="step"><span class="name">3. Open SAP checks</span><p>abapGit, ATC exports, test tooling, and CI quality gates keep feedback portable.</p></div>
+        <div class="step"><span class="name">3. Open SAP checks</span><p>abapGit, test tooling, and CI quality gates keep feedback portable.</p></div>
         <div class="step"><span class="name">4. Autonomous, governed</span><p>AI assistance can use any provider and work on PR evidence while humans retain control.</p></div>
       </div>
 
