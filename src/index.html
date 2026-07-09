@@ -188,19 +188,27 @@
         text-transform: uppercase;
       }
       .labs-preview {
-        border: 1px solid var(--line);
+        background: var(--ink);
+        border: 1px solid var(--ink);
         border-radius: 999px;
-        color: var(--muted);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+        color: #fff;
         display: inline-block;
-        font-size: 8px;
+        font-size: 6.5px;
         font-weight: 700;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.09em;
         line-height: 1;
-        margin-left: 0.3rem;
-        padding: 0.18rem 0.32rem;
+        margin-left: 0;
+        padding: 0.18rem 0.32rem 0.16rem;
         text-transform: uppercase;
-        vertical-align: 0.08rem;
+        vertical-align: 0.12rem;
         white-space: nowrap;
+      }
+      .step .labs-preview,
+      .metric .labs-preview {
+        display: table;
+        margin: 0.32rem 0 0;
+        vertical-align: baseline;
       }
       .flow {
         display: grid;
