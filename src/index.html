@@ -141,6 +141,10 @@
         letter-spacing: 0.08em;
         padding-top: 0.12rem;
       }
+      .toc a {
+        color: inherit;
+        text-decoration: none;
+      }
 
       /* --- One-pager --- */
       .eyebrow {
@@ -260,21 +264,21 @@
       <p>The following one-pagers highlight the workflows and focus areas that make this foundation practical, actionable, and ready to adopt: build quality in, automate test data and scenarios, review changes with LLM assistance, inner source across teams, onboard developers faster, roll back with confidence, build on open tooling instead of walled gardens, govern clean core decisions, monitor repository health, and sequence transports with preview deployments.</p>
       <h2>Contents</h2>
       <ol class="toc">
-        <li>Quality Built In</li>
-        <li>Test Data and Scenario Automation</li>
-        <li>LLM-Based Code Review for SAP Changes</li>
-        <li>Inner Sourcing for SAP Teams</li>
-        <li>Developer Onboarding and Enablement</li>
-        <li>Easy Rollback with GitHub as the Change Memory</li>
-        <li>GitHub, Advanced Security, and Open Tooling</li>
-        <li>Clean Core and Extension Governance</li>
-        <li>Repository Health and Progress Visibility</li>
-        <li>Transport Sequencing and Preview Deployments</li>
+        <li><a href="#quality-built-in">Quality Built In</a></li>
+        <li><a href="#test-data-and-scenario-automation">Test Data and Scenario Automation</a></li>
+        <li><a href="#llm-based-code-review">LLM-Based Code Review for SAP Changes</a></li>
+        <li><a href="#inner-sourcing">Inner Sourcing for SAP Teams</a></li>
+        <li><a href="#developer-onboarding">Developer Onboarding and Enablement</a></li>
+        <li><a href="#easy-rollback">Easy Rollback with GitHub as the Change Memory</a></li>
+        <li><a href="#github-advanced-security-open-tooling">GitHub, Advanced Security, and Open Tooling</a></li>
+        <li><a href="#clean-core-governance">Clean Core and Extension Governance</a></li>
+        <li><a href="#repository-health">Repository Health and Progress Visibility</a></li>
+        <li><a href="#transport-sequencing">Transport Sequencing and Preview Deployments</a></li>
       </ol>
     </section>
 
     <!-- One-Pager 1 -->
-    <section class="page">
+    <section class="page" id="quality-built-in">
       <span class="eyebrow">One-Pager 1 of 10 | Quality Built In</span>
       <h1>Quality Built In</h1>
       <p>Make SAP quality part of the development workflow instead of a late project phase. Continuous integration runs the same checks every time a change is proposed, so developers do not need to remember what to run and teams get objective feedback before review, testing, transport sequencing, or release decisions become expensive.</p>
@@ -305,7 +309,7 @@
     </section>
 
     <!-- One-Pager 2 -->
-    <section class="page">
+    <section class="page" id="test-data-and-scenario-automation">
       <span class="eyebrow">One-Pager 2 of 10 | Test Data and Scenario Automation</span>
       <h1>Test Data and Scenario Automation</h1>
       <p>Make SAP testing repeatable by treating unit tests, test scenarios, expected outcomes, and representative test data as part of the development workflow.</p>
@@ -337,7 +341,7 @@
     </section>
 
     <!-- One-Pager 3 -->
-    <section class="page">
+    <section class="page" id="llm-based-code-review">
       <span class="eyebrow">One-Pager 3 of 10 | LLM-Based Code Review for SAP Changes</span>
       <h1>LLM-Based Code Review for SAP Changes</h1>
       <p>Bring fast, consistent review feedback into the GitHub pull request before SAP experts spend their time.</p>
@@ -369,7 +373,7 @@
     </section>
 
     <!-- One-Pager 4 -->
-    <section class="page">
+    <section class="page" id="inner-sourcing">
       <span class="eyebrow">One-Pager 4 of 10 | Inner Sourcing for SAP Teams</span>
       <h1>Inner Sourcing for SAP Teams</h1>
       <p>Use GitHub pull requests to make SAP knowledge discoverable, reusable, and easier to improve across teams.</p>
@@ -401,7 +405,7 @@
     </section>
 
     <!-- One-Pager 5 -->
-    <section class="page">
+    <section class="page" id="developer-onboarding">
       <span class="eyebrow">One-Pager 5 of 10 | Developer Onboarding and Enablement</span>
       <h1>Developer Onboarding and Enablement</h1>
       <p>Make SAP development easier to join, understand, and improve by moving knowledge into repositories, pull requests, automated checks, and repeatable workflows.</p>
@@ -433,7 +437,7 @@
     </section>
 
     <!-- One-Pager 6 -->
-    <section class="page">
+    <section class="page" id="easy-rollback">
       <span class="eyebrow">One-Pager 6 of 10 | Easy Rollback with GitHub as the Change Memory</span>
       <h1>Easy Rollback with GitHub as the Change Memory</h1>
       <p>Make every SAP change easier to understand, compare, and reverse by keeping the source, review, and release evidence in GitHub.</p>
@@ -465,7 +469,7 @@
     </section>
 
     <!-- One-Pager 7 -->
-    <section class="page">
+    <section class="page" id="github-advanced-security-open-tooling">
       <span class="eyebrow">One-Pager 7 of 10 | GitHub, Advanced Security, and Open Tooling</span>
       <h1>GitHub, Advanced Security, and Open Tooling</h1>
       <p>This approach builds on proven platform choices: GitHub for inner sourcing, GitHub Advanced Security for risk visibility, and open tooling for SAP developer feedback.</p>
@@ -497,7 +501,7 @@
     </section>
 
     <!-- One-Pager 8 -->
-    <section class="page">
+    <section class="page" id="clean-core-governance">
       <span class="eyebrow">One-Pager 8 of 10 | Clean Core and Extension Governance</span>
       <h1>Clean Core and Extension Governance</h1>
       <p>Use GitHub-based review and automation to make SAP clean core decisions visible, deliberate, and repeatable.</p>
@@ -529,7 +533,7 @@
     </section>
 
     <!-- One-Pager 9 -->
-    <section class="page">
+    <section class="page" id="repository-health">
       <span class="eyebrow">One-Pager 9 of 10 | Repository Health and Progress Visibility</span>
       <h1>Repository Health and Progress Visibility</h1>
       <p>Turn SAP development from a hidden transport queue into an observable engineering system. GitHub repositories, pull requests, CI checks, review activity, security findings, and release signals make progress visible without asking teams to maintain separate status decks.</p>
@@ -561,11 +565,11 @@
     </section>
 
     <!-- One-Pager 10 -->
-    <section class="page">
+    <section class="page" id="transport-sequencing">
       <span class="eyebrow">One-Pager 10 of 10 | Transport Sequencing and Preview Deployments</span>
       <h1>Transport Sequencing and Preview Deployments</h1>
       <p>Make SAP releases easier to reason about before production by showing planned changes, dependencies, transport order, and preview evidence in one workflow.</p>
-      <p>Transport sequencing <span class="labs-preview">Labs Preview</span> helps teams see what can move, what must wait, and what release state they are targeting. Preview deployments <span class="labs-preview">Labs Preview</span> give reviewers a temporary environment to inspect change behavior before production release.</p>
+      <p>Transport sequencing <span class="labs-preview">Labs Preview</span> helps teams see what can move, what must wait, and what release state they are targeting. Preview deployments <span class="labs-preview">Labs Preview</span> give reviewers a temporary environment to inspect change behavior before production release. Impact analysis <span class="labs-preview">Labs Preview</span> highlights the expected production effect before approval.</p>
 
       <h2>Flow</h2>
       <div class="flow">
@@ -588,7 +592,7 @@
       <div class="metrics">
         <div class="metric"><span class="value">Sequence <span class="labs-preview">Labs Preview</span></span><span class="label">Plan transport order</span></div>
         <div class="metric"><span class="value">Preview <span class="labs-preview">Labs Preview</span></span><span class="label">Inspect before release</span></div>
-        <div class="metric"><span class="value">Decide</span><span class="label">With release evidence</span></div>
+        <div class="metric"><span class="value">Impact analysis <span class="labs-preview">Labs Preview</span></span><span class="label">Assess production effect</span></div>
       </div>
     </section>
   </body>
