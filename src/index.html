@@ -130,7 +130,7 @@
         font-size: 13px;
         gap: 0.85rem;
         margin: 0;
-        padding: 0.62rem 0;
+        padding: 0.5rem 0;
       }
       .toc li::before {
         color: var(--quiet);
@@ -261,7 +261,7 @@
       <p>With <a href="https://docs.heliconialabs.com/abapgit-flow.pdf">abapGit flow</a>, <a href="https://heliconialabs.com">Heliconia Labs</a> provides an end-to-end development and deployment process for SAP ABAP systems. It brings modern software delivery practices to ABAP: Git-based collaboration, pull requests, quality gates, code review, and independent changes that can move safely toward production.</p>
       <p>Together with open tooling, this creates a modern workflow where feedback is visible early, quality is built in, and ABAP code becomes accessible to contemporary engineering tools. This foundation is essential for successful LLM implementations, where clean versioned code, automated checks, and repeatable workflows determine how effectively AI can assist.</p>
       <p>Across all of these topics, the focus is developer experience and productivity: fewer manual checklists, clearer review context, faster feedback, and workflows that let SAP developers work with the same confidence and ergonomics as the rest of the engineering organization.</p>
-      <p>The following one-pagers highlight the workflows and focus areas that make this foundation practical, actionable, and ready to adopt: build quality in, automate test data and scenarios, review changes with LLM assistance, inner source across teams, onboard developers faster, roll back with confidence, build on open tooling instead of walled gardens, keep security simple with SAP-initiated communication and no new infrastructure, govern clean core decisions, monitor repository health, and sequence transports with preview deployments.</p>
+      <p>The following one-pagers highlight the workflows and focus areas that make this foundation practical, actionable, and ready to adopt: build quality in, automate test data and scenarios, review changes with LLM assistance, inner source across teams, onboard developers faster, roll back with confidence, build on open tooling instead of walled gardens, develop offline without internet or SAP connectivity, keep security simple with SAP-initiated communication and no new infrastructure, govern clean core decisions, monitor repository health, and sequence transports with preview deployments.</p>
       <h2>Contents</h2>
       <ol class="toc">
         <li><a href="#quality-built-in">Quality Built In</a></li>
@@ -271,6 +271,7 @@
         <li><a href="#developer-onboarding">Developer Onboarding and Enablement</a></li>
         <li><a href="#easy-rollback">Easy Rollback with GitHub as the Change Memory</a></li>
         <li><a href="#github-open-tooling">GitHub and Open Tooling</a></li>
+        <li><a href="#offline-development">Offline Development</a></li>
         <li><a href="#security">Security</a></li>
         <li><a href="#clean-core-governance">Clean Core and Extension Governance</a></li>
         <li><a href="#repository-health">Repository Health and Progress Visibility</a></li>
@@ -280,7 +281,7 @@
 
     <!-- One-Pager 1 -->
     <section class="page" id="quality-built-in">
-      <span class="eyebrow">One-Pager 1 of 11 | Quality Built In</span>
+      <span class="eyebrow">One-Pager 1 of 12 | Quality Built In</span>
       <h1>Quality Built In</h1>
       <p>Make SAP quality part of the development workflow instead of a late project phase. Continuous integration runs the same checks every time a change is proposed, so developers do not need to remember what to run and teams get objective feedback before review, testing, transport sequencing, or release decisions become expensive.</p>
       <p>With <a href="https://abaplint.app">abaplint.app</a>, ABAP static analysis becomes fast, configurable, and visible in the pull request. Developers see issues while the code is still fresh, reviewers get cleaner evidence, and quality standards become daily habits. For LLM-based changes, the same gates keep humans in the loop before code moves forward.</p>
@@ -311,7 +312,7 @@
 
     <!-- One-Pager 2 -->
     <section class="page" id="test-data-and-scenario-automation">
-      <span class="eyebrow">One-Pager 2 of 11 | Test Data and Scenario Automation</span>
+      <span class="eyebrow">One-Pager 2 of 12 | Test Data and Scenario Automation</span>
       <h1>Test Data and Scenario Automation</h1>
       <p>Make SAP testing repeatable by treating unit tests, test scenarios, expected outcomes, and representative test data as part of the development workflow.</p>
       <p>Quality gates prove that code can pass checks, but business confidence also depends on realistic process paths. Pull requests can connect code changes with unit test coverage, scenarios, data, and evidence needed to show that the behavior works before release pressure builds.</p>
@@ -343,7 +344,7 @@
 
     <!-- One-Pager 3 -->
     <section class="page" id="llm-based-code-review">
-      <span class="eyebrow">One-Pager 3 of 11 | LLM-Based Code Review for SAP Changes</span>
+      <span class="eyebrow">One-Pager 3 of 12 | LLM-Based Code Review for SAP Changes</span>
       <h1>LLM-Based Code Review for SAP Changes</h1>
       <p>Bring fast, consistent review feedback into the GitHub pull request before SAP experts spend their time.</p>
       <p>A reviewer gets cleaner ABAP, clearer context, and fewer avoidable defects. The team keeps the four-eyes principle, with an AI assistant handling the first pass. The LLM provider is replaceable: use the model that fits the risk, data, and enterprise sourcing requirements.</p>
@@ -375,7 +376,7 @@
 
     <!-- One-Pager 4 -->
     <section class="page" id="inner-sourcing">
-      <span class="eyebrow">One-Pager 4 of 11 | Inner Sourcing for SAP Teams</span>
+      <span class="eyebrow">One-Pager 4 of 12 | Inner Sourcing for SAP Teams</span>
       <h1>Inner Sourcing for SAP Teams</h1>
       <p>Use GitHub pull requests to make SAP knowledge discoverable, reusable, and easier to improve across teams.</p>
       <p>SAP development stops being hidden in isolated systems and becomes part of the shared engineering ecosystem, helping teams upskill into normal software delivery habits without reinventing a separate SAP-only wheel.</p>
@@ -407,7 +408,7 @@
 
     <!-- One-Pager 5 -->
     <section class="page" id="developer-onboarding">
-      <span class="eyebrow">One-Pager 5 of 11 | Developer Onboarding and Enablement</span>
+      <span class="eyebrow">One-Pager 5 of 12 | Developer Onboarding and Enablement</span>
       <h1>Developer Onboarding and Enablement</h1>
       <p>Make SAP development easier to join, understand, and improve by moving knowledge into repositories, pull requests, automated checks, and repeatable workflows.</p>
       <p>New developers, consultants, and cross-functional engineers should not depend on tribal knowledge as the main interface to the SAP landscape. Repositories can show how the system is organized, which standards apply, who owns what, and how a change moves safely from idea to production.</p>
@@ -439,7 +440,7 @@
 
     <!-- One-Pager 6 -->
     <section class="page" id="easy-rollback">
-      <span class="eyebrow">One-Pager 6 of 11 | Easy Rollback with GitHub as the Change Memory</span>
+      <span class="eyebrow">One-Pager 6 of 12 | Easy Rollback with GitHub as the Change Memory</span>
       <h1>Easy Rollback with GitHub as the Change Memory</h1>
       <p>Make every SAP change easier to understand, compare, and reverse by keeping the source, review, and release evidence in GitHub.</p>
       <p>Rollback becomes a prepared operational path, not an emergency reconstruction exercise. Teams can compare production state with reviewed source, understand why a change moved forward, and propose a controlled revert using the same pull request workflow.</p>
@@ -471,7 +472,7 @@
 
     <!-- One-Pager 7 -->
     <section class="page" id="github-open-tooling">
-      <span class="eyebrow">One-Pager 7 of 11 | GitHub and Open Tooling</span>
+      <span class="eyebrow">One-Pager 7 of 12 | GitHub and Open Tooling</span>
       <h1>GitHub and Open Tooling</h1>
       <p>This approach builds on proven platform choices: GitHub for inner sourcing, GitHub Actions for automation, and open tooling for SAP developer feedback.</p>
       <p>This is not a new isolated SAP platform. It is an extension of the engineering platform already chosen for transparency, collaboration, and automation, based on open tooling with a proven track record.</p>
@@ -501,8 +502,40 @@
     </section>
 
     <!-- One-Pager 8 -->
+    <section class="page" id="offline-development">
+      <span class="eyebrow">One-Pager 8 of 12 | Offline Development</span>
+      <h1>Offline Development</h1>
+      <p>Write, check, and test ABAP with no connection to the internet and no connection to an SAP system. Because the source lives in a Git repository, developers clone once and keep working on a plane, on a train, at a restricted customer site, or anywhere the network is slow or unavailable.</p>
+      <p>The open toolchain runs entirely on the developer's machine. <a href="https://abaplint.org">abaplint</a> provides syntax checks, Clean ABAP findings, and navigation in the editor, and the open source <a href="https://github.com/abaplint/transpiler">ABAP transpiler</a> runs unit tests locally in seconds. Work is committed to local Git and pushed when the connection returns, where the same checks run again in CI and the pull request flow continues as usual.</p>
+
+      <h2>Flow</h2>
+      <div class="flow">
+        <div class="step"><span class="name">1. Clone once</span><p>ABAP source, configuration, tests, and documentation are copied to the laptop while online.</p></div>
+        <div class="step"><span class="name">2. Edit locally</span><p>The editor runs abaplint locally for syntax checks, Clean ABAP findings, and navigation, without a server round trip.</p></div>
+        <div class="step"><span class="name">3. Test locally</span><p>The ABAP transpiler runs unit tests on the developer's machine, with no SAP system and no network.</p></div>
+        <div class="step"><span class="name">4. Sync later</span><p>Local commits are pushed when back online. CI repeats the checks and the pull request flow continues.</p></div>
+      </div>
+
+      <h2>Why It Matters</h2>
+      <ul>
+        <li>Work anywhere: travel, remote sites, and locked-down networks stop blocking development.</li>
+        <li>Fast inner loop: checks and unit tests run in seconds on the laptop, without network latency or a shared server.</li>
+        <li>Independent of system availability: downtime, upgrades, locks, or a busy development system do not stop coding and testing.</li>
+        <li>Nothing lost offline: small local commits keep progress safe and reviewable, and the same quality gates apply once pushed.</li>
+      </ul>
+
+      <h2>SAP Fit</h2>
+      <p>Offline development complements the SAP system instead of replacing it. Writing and refactoring code, and running unit tests that isolate SAP dependencies, all happen locally. Integration with standard SAP objects, business data, and end-to-end scenarios is still validated in the SAP landscape through the normal pull request and transport flow, using the same repository and rules for ECC and S/4HANA.</p>
+      <div class="metrics">
+        <div class="metric"><span class="value">No Internet</span><span class="label">Edit, check, and test offline</span></div>
+        <div class="metric"><span class="value">No SAP System</span><span class="label">Unit tests run on the laptop</span></div>
+        <div class="metric"><span class="value">Sync Later</span><span class="label">Push and review when back online</span></div>
+      </div>
+    </section>
+
+    <!-- One-Pager 9 -->
     <section class="page" id="security">
-      <span class="eyebrow">One-Pager 8 of 11 | Security</span>
+      <span class="eyebrow">One-Pager 9 of 12 | Security</span>
       <h1>Security</h1>
       <p>Adopt abapGit flow without changing the security posture of the SAP landscape. There are typically no changes to network or VPN setup, no SAP Basis setup, and no additional infrastructure to run: no servers, agents, or middleware to install, operate, patch, or audit.</p>
       <p>The SAP system initiates all communication, triggered by user actions and using each developer's existing accesses and authorizations. Nothing connects into the SAP system from outside, and no third-party component holds standing access. On the platform side, GitHub Advanced Security adds secret scanning, code scanning, and dependency visibility to every pull request.</p>
@@ -532,9 +565,9 @@
       </div>
     </section>
 
-    <!-- One-Pager 9 -->
+    <!-- One-Pager 10 -->
     <section class="page" id="clean-core-governance">
-      <span class="eyebrow">One-Pager 9 of 11 | Clean Core and Extension Governance</span>
+      <span class="eyebrow">One-Pager 10 of 12 | Clean Core and Extension Governance</span>
       <h1>Clean Core and Extension Governance</h1>
       <p>Use GitHub-based review and automation to make SAP clean core decisions visible, deliberate, and repeatable.</p>
       <p>Teams should be able to see when a change belongs in standard configuration, an ABAP enhancement, a side-by-side extension, an API, or a temporary exception. Clean core becomes practical when architectural intent is reviewed before implementation choices harden.</p>
@@ -564,9 +597,9 @@
       </div>
     </section>
 
-    <!-- One-Pager 10 -->
+    <!-- One-Pager 11 -->
     <section class="page" id="repository-health">
-      <span class="eyebrow">One-Pager 10 of 11 | Repository Health and Progress Visibility</span>
+      <span class="eyebrow">One-Pager 11 of 12 | Repository Health and Progress Visibility</span>
       <h1>Repository Health and Progress Visibility</h1>
       <p>Turn SAP development from a hidden transport queue into an observable engineering system. GitHub repositories, pull requests, CI checks, review activity, security findings, and release signals make progress visible without asking teams to maintain separate status decks.</p>
       <p>Repository health gives architects, leads, and managers a shared view of delivery quality. Teams can see where work is blocked, which changes carry risk, whether ownership is clear, and how modern SAP engineering habits are being adopted over time.</p>
@@ -596,9 +629,9 @@
       </div>
     </section>
 
-    <!-- One-Pager 11 -->
+    <!-- One-Pager 12 -->
     <section class="page" id="transport-sequencing">
-      <span class="eyebrow">One-Pager 11 of 11 | Transport Sequencing and Preview Deployments</span>
+      <span class="eyebrow">One-Pager 12 of 12 | Transport Sequencing and Preview Deployments</span>
       <h1>Transport Sequencing and Preview Deployments</h1>
       <p>Make SAP releases easier to reason about before production by showing planned changes, dependencies, transport order, and preview evidence in one workflow.</p>
       <p>Transport sequencing <span class="labs-preview">Labs Preview</span> helps teams see what can move, what must wait, and what release state they are targeting. Preview deployments <span class="labs-preview">Labs Preview</span> give reviewers a temporary environment to inspect change behavior before production release. Impact analysis <span class="labs-preview">Labs Preview</span> highlights the expected production effect before approval.</p>
